@@ -87,11 +87,13 @@ body {
     // border: 2px dotted #c98989;
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 300;
+    font-size: 90%;
   }
 
   .api-1 {
     // display: none;
     display: flex;
+    align-items: center;
     padding: 1.5em;
     // width: 100%;
     // border: transparent;
@@ -99,6 +101,8 @@ body {
     // width: 33.333%;
     width: 25%;
     border-right: 2px dotted #292626;
+    font-size: 90%;
+    overflow: hidden;
   }
 
   .api-1:hover {
@@ -108,6 +112,7 @@ body {
   .api-2 {
     // display: none;
     display: flex;
+    align-items: center;
     padding: 1.5em;
     // width: 100%;
     // border: transparent;
@@ -115,6 +120,8 @@ body {
     // width: 33.333%;
     width: 25%;
     border-right: 2px dotted #292626;
+    font-size: 90%;
+    overflow: hidden;
   }
 
   .api-2:hover {
@@ -165,9 +172,9 @@ body {
     font-weight: 400;
   }
 
-  .list-body {
-    font-weight: 300;
-  }
+  // .list-body {
+  //   font-weight: 300;
+  // }
 
   .to-watch {
     padding: 1.5em;
@@ -189,7 +196,7 @@ body {
     font-weight: 300;
   }
 
-  .list-body {
+  .list-entry {
     display: none;
   }
 
@@ -209,6 +216,14 @@ body {
     display: none;
   }
 
+  .edit {
+    display: none;
+  }
+
+  .delete {
+    display: none;
+  }
+
   footer {
     display: none;
   }
@@ -224,28 +239,54 @@ body {
     justify-content: space-between;
     border: 5px solid #b49069;
     font-weight: 400;
-    height: 450px;
+    height: 475px;
+    overflow: scroll;
 
-    .list-body {
+    .list-entry {
       display: flex;
+      flex-direction: column;
     }
 
     .title {
       display: flex;
+      padding-top: .25em;
+      padding-bottom: .25em;
       font-weight: 700;
     }
 
     .author {
       display: flex;
+      padding-top: .25em;
+      padding-bottom: .25em;
     }
 
     .description {
       display: flex;
+      padding-top: .25em;
+      padding-bottom: .25em;
+      font-style: italic;
+      font-size: 90%;
+      // font-weight: lighter;
     }
 
     .notes {
       display: flex;
+      padding-top: .25em;
+      padding-bottom: .5em;
+      font-size: 90%;
+      font-weight: lighter;
     }
+
+    // .edit {
+    //   display: inline;
+    //   font-size: 90%;
+    // }
+
+    // .delete {
+    //   display: inline;
+    //   font-size: 90%;
+    // }
+
 
     footer {
       display: flex;
@@ -261,6 +302,21 @@ body {
       font-size: 90%;
     }
   }
+
+  .list-entry:hover {
+    .edit {
+      display: inline;
+      font-size: 90%;
+    }
+
+    .delete {
+      display: inline;
+      font-size: 90%;
+    }
+  }
+
+
+
 
   .to-eat {
     padding: 1.5em;
