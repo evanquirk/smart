@@ -87,11 +87,13 @@ body {
     // border: 2px dotted #c98989;
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 300;
+    font-size: 90%;
   }
 
   .api-1 {
     // display: none;
     display: flex;
+    align-items: center;
     padding: 1.5em;
     // width: 100%;
     // border: transparent;
@@ -99,6 +101,8 @@ body {
     // width: 33.333%;
     width: 25%;
     border-right: 2px dotted #292626;
+    font-size: 90%;
+    overflow: hidden;
   }
 
   .api-1:hover {
@@ -108,6 +112,7 @@ body {
   .api-2 {
     // display: none;
     display: flex;
+    align-items: center;
     padding: 1.5em;
     // width: 100%;
     // border: transparent;
@@ -116,6 +121,7 @@ body {
     width: 25%;
     border-right: 2px dotted #292626;
     font-size: 90%;
+    overflow: hidden;
   }
 
   .api-2:hover {
@@ -234,6 +240,7 @@ body {
     border: 5px solid #b49069;
     font-weight: 400;
     height: 475px;
+    overflow: scroll;
 
     .list-entry {
       display: flex;
