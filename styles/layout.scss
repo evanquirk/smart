@@ -14,41 +14,6 @@ body {
     font-size: 36px;
   }
 
-  #navigation {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 120px;
-    color: white;
-    background-color: #11261c;
-  }
-  .logo {
-    font-size: 2em;
-    color: white;
-  }
-  .logo a:link {
-    color:#FFFFFF;
-  }
-
-  #right-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  #right-nav-buttons {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
   main {
     margin: 120px;
     display: flex;
