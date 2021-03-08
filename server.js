@@ -36,6 +36,7 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const loginRoute = require("./routes/login_route");
 const logoutRoute = require("./routes/logout_route");
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/users", usersRoutes(db));
