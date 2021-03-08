@@ -29,11 +29,6 @@ body {
     font-size: 36px;
   }
 
-  // .sub-title {
-  //   font-family: sans-serif;
-  //   font-size: 20px;
-  // }
-
   main {
     margin: 120px;
     display: flex;
@@ -43,6 +38,9 @@ body {
     color: #545149;
     background-color: #f4f1ec;
   }
+
+
+  // Add To-Do
 
   .new-to-do {
     align-self: center;
@@ -56,18 +54,23 @@ body {
     background: transparent;
     border: transparent;
     outline: none;
-    border-bottom: 4.5px solid #545149;
+    border-bottom: 3.5px solid #545149;
     font-weight: 400;
   }
 
   button {
+    height: 45px;
     font-family: "Bungee", sans-serif;
     font-size: 90%;
     color: white;
     background-color: #5059a7e5;
   }
 
+
+  // Preview
+
   .preview {
+    // display: none;
     font-size: 90%;
   }
 
@@ -146,16 +149,29 @@ body {
     border: 3.5px solid #88c7be;
   }
 
+
+  // To-Do Lists
+
   .lists {
+    display: flex;
+    flex-direction: column;
     align-self: center;
     padding: 1.5em;
     width: 90%;
     background-color: f4f1ec;
   }
 
+  .list-name {
+    font-weight: 400;
+  }
+
+  .list-body {
+    font-weight: 300;
+  }
+
   .to-watch {
     padding: 1.5em;
-    border: 4.5px solid #855c77;
+    border: 4px solid #855c77;
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 300;
   }
@@ -168,20 +184,87 @@ body {
 
   .to-read {
     padding: 1.5em;
-    border: 4.5px solid #b49069;
+    border: 4px solid #b49069;
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 300;
   }
 
+  .list-body {
+    display: none;
+  }
+
+  .title {
+    display: none;
+  }
+
+  .author {
+    display: none;
+  }
+
+  .description {
+    display: none;
+  }
+
+  .notes {
+    display: none;
+  }
+
+  footer {
+    display: none;
+  }
+
+  .action-icons {
+    display: none;
+  }
+
   .to-read:hover {
     // box-shadow: 5px 10px #a6aad8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border: 5px solid #b49069;
     font-weight: 400;
+    height: 450px;
+
+    .list-body {
+      display: flex;
+    }
+
+    .title {
+      display: flex;
+      font-weight: 700;
+    }
+
+    .author {
+      display: flex;
+    }
+
+    .description {
+      display: flex;
+    }
+
+    .notes {
+      display: flex;
+    }
+
+    footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: flex-end;
+      font-size: 19px;
+    }
+
+    .action-icons {
+      display: flex;
+      color: rgb(95, 95, 231);
+      font-size: 90%;
+    }
   }
 
   .to-eat {
     padding: 1.5em;
-    border: 4.5px solid #a9a9c3;
+    border: 4px solid #a9a9c3;
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 300;
   }
@@ -194,7 +277,7 @@ body {
 
   .to-buy {
     padding: 1.5em;
-    border: 4.5px solid #88c7be;
+    border: 4px solid #88c7be;
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 300;
   }
@@ -207,7 +290,7 @@ body {
 
   .uncategorized {
     padding: 1.5em;
-    border: 4.5px solid #c98989;
+    border: 4px solid #c98989;
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 300;
   }
