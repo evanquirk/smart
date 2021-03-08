@@ -12,10 +12,13 @@
   <script type="text/javascript" src="/scripts/app.js"></script>
 
   <!-- App CSS -->
-  <link rel="stylesheet" href="/styles/index.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="/styles/index.css" type="text/css" /> -->
 
   <!-- External CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- APP JS -->
+  <script type="text/javascript" src="scripts/client.js"></script>
 </head>
 
 <body>
@@ -23,9 +26,8 @@
   <main>
 
     <!-- Navigation Bar -->
-    <nav>
-      <div><span class="title-case">SORT.ID</span></div>
-    </nav>
+    <%- include partials/header -%>
+
 
     <!-- Add To-Do box -->
     <section class="new-to-do">
