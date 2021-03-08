@@ -1,17 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+<head>
+  <title>Home Page</title>
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-  <body>
-    <h1>Hello World!</h1>
-  </body>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/index.css" type="text/css" />
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+  <!-- Main Content -->
+  <main>
+
+    <!-- Navigation Bar -->
+    <nav>
+      <div><span class="title-case">SORT.ID</span></div>
+    </nav>
+
+    <!-- Add To-Do box -->
+    <section class="new-to-do">
+      <form action="" id="" method="post">
+        <label for="to-do">What would you like to do later?</label><br></br>
+        <textarea name="text" id="to-do" class="text-area"></textarea>
+        <div class="footer">
+          <button type="submit">Add To-Do</button>
+        </div>
+      </form><br></br>
+
+      <!-- Preview To-Do box -->
+      <label class="preview">
+        Select a match:
+      </label>
+      <article class="preview-box">
+        <article class="api-1"></article>
+        <article class="api-2"></article>
+        <article class="api-3"></article>
+        <article class="api-4"></article>
+      </article>
+    </section>
+
+    <!-- To-Do Lists -->
+    <section class="lists">
+      <article class="to-watch">
+        <header>
+          <div class="list-name">To Watch</div>
+        </header>
+        <p class="list-body"><div></div></p>
+        <footer>
+          <div class="date-updated"></div>
+        </footer>
+      </article><br></br>
+      <article class="to-read">
+        <header>
+          <div class="list-name">To Read</div>
+        </header>
+        <p class="list-body">
+        <div class="title">Moby Dick</div>
+        <div class="author">Herman Melville</div>
+        <div class="description">[description]</div>
+        <div class="notes">[notes]</div>
+        </p>
+        <footer>
+          <div class="date-updated">Updated: March 7, 2021</div>
+          <div class="action-icons"> &nbsp;&nbsp;
+            <i class="fa fa-share"></i>
+          </div>
+        </footer>
+        <footer>
+          <div class="date-updated"></div>
+        </footer>
+      </article><br></br>
+      <article class="to-eat">
+        <header>
+          <div class="list-name">To Eat</div>
+        </header>
+        <p class="list-body"><div></div></p>
+        <footer>
+          <div class="date-updated"></div>
+        </footer>
+      </article><br></br>
+      <article class="to-buy">
+        <header>
+          <div class="list-name">To Buy</div>
+        </header>
+        <p class="list-body"><div></div></p>
+        <footer>
+          <div class="date-updated"></div>
+        </footer>
+      </article><br></br>
+      <article class="uncategorized">
+        <header>
+          <div class="list-name">(Uncategorized)</div>
+        </header>
+        <p class="list-body"><div></div></p>
+        <footer>
+          <div class="date-updated"></div>
+        </footer>
+      </article>
+    </section>
+
+  </main>
+</body>
+
 </html>
