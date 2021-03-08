@@ -1,0 +1,109 @@
+#navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 120px;
+  color: white;
+  background-color: #11261c;
+  padding-left: 1.5em;
+  padding-right: 1em;
+}
+.logo {
+  font-size: 2em;
+  color: white;
+}
+.logo a:link {
+  color:#FFFFFF;
+}
+
+#right-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -.5em;
+}
+
+#right-nav-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logIn {
+  margin-top: -.25em;
+
+}
+
+.register {
+  margin-top: -.25em;
+}
+
+.register-button {
+  background-color: rgba(128, 128, 128, 0.623);
+  margin-top: -.75em;
+}
+
+.login-button {
+  background-color: rgba(128, 128, 128, 0.623);
+  margin-top: -.75em;
+}
+
+input[name="login-email"] {
+  width: 30%;
+  margin: 1em;
+}
+
+input[name="login-password"] {
+  width: 30%;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+label[for=email] {
+  margin-left: .5em;
+}
+
+.submit-login {
+  margin-left: .5em;
+  margin-top: -.5em;
+  margin-bottom: 1em;
+  background-color: #5059a7e5
+}
+
+label[for=username] {
+  margin-left: .5em;
+}
+
+label[for=password] {
+  margin-left: .5em;
+}
+
+.submit-register {
+  margin-left: .5em;
+  margin-top: -.5em;
+  margin-bottom: 1em;
+  background-color: #5059a7e5
+}
+
+input[name="register-username"] {
+  width: 20%;
+  margin: 1em;
+}
+
+input[name="register-email"] {
+  width: 20%;
+  margin: 1em;
+}
+
+input[name="register-password"] {
+  width: 20%;
+  margin-left: 1em;
+  margin-right: 1em;
+}

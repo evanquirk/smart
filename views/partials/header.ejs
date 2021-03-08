@@ -1,35 +1,38 @@
+ <!-- App CSS -->
+ <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+
 <header>
   <nav id="navigation">
     <div class="logo"> SORT.ID
       </div>
     </div>
     <div id="right-nav">
-        <p>Hello, username!</p>
+        <p>Hello, [username]!</p>
     <div id="right-nav-buttons">
-      <button type="button" class="register-button">Register</button>
+      <button type="button" class="register-button">Register</button>&nbsp;
       <button type="button" class="login-button">Login</button>
     </div>
     </div>
   </nav>
 
-  <!-- Log in Form (Take CSS Out for proper styling. No longer in line)-->
+  <!-- Log in Form -->
   <form action="/login" class="logIn" method="POST">
     <label for="email">Email:</label>
-    <input type="email" name="email" style="width: 30%; margin: 1em">
+    <input type="email" name="login-email">
       <label for="password">Password:</label>
-    <input type="password" name="password" style="width: 30%; margin: 1em"></input>
+    <input type="password" name="login-password"></input>
     <button type="submit" class="submit-login">Login</button>
     </form>
 
-    <!-- Register Form (Take CSS Out for proper styling. No longer in line) -->
+    <!-- Register Form -->
     <form action="/register" class="register" method="POST">
       <label for="username">Username:</label>
-      <input type="username" name="username" style="width: 20%; margin: 1em">
+      <input type="username" name="register-username">
       <label for="email">Email:</label>
-      <input type="email" name="email" style="width: 20%; margin: 1em">
+      <input type="email" name="register-email">
         <label for="password">Password:</label>
-      <input type="password" name="password" style="width: 20%; margin: 1em"></input>
-      <button type="submit" class="submit-register">Login</button>
+      <input type="password" name="register-password"></input>
+      <button type="submit" class="submit-register">Register</button>
       </form>
 
 </header>
