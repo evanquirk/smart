@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const { getUserByEmail, addUser } = require('../helpers/dbHelpers');
+const { getUserByEmail, addUser } = require('../helpers/authQueries');
 
 module.exports = () => {
   router.get('/', (req, res) => {
-    res.render('index');
+    res.redirect('/');
   })
 
   router.post('/', async (req, res) => {
@@ -14,18 +14,18 @@ module.exports = () => {
       email: req.body.newEmail,
       password: req.body.newPassword
     }
+
+
     const user = await getUserByEmail(input.email);
-    console.log("user:", user);
     if (user) {
-      res.render('../views/user_lists.ejs');
+      res.redirect('/user-lists');
     } else {
       const addingUser = await addUser(input);
       req.session = { user_id: addingUser.id };
-      res.render('../views/user_lists.ejs');
+      res.redirect('/user-lists', {});
     }
 
   });
 
   return router;
 }
-// TO GO THROUGH AND MAP TO OUR DATABASE.

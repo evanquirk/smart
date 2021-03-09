@@ -1,5 +1,5 @@
 const { db } = require('../db/index');
-const brcypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 const getUserByEmail = async (email) => {
   const queryString = `
@@ -20,7 +20,7 @@ const getUserByEmail = async (email) => {
 }
   // add user to the database using bcrypt.
   const addUser = async (obj) => {
-    const { username, email, password } = obj;
+    const { name, email, password } = obj;
 
     const queryString = `
     INSERT INTO users (username, email, password)
@@ -28,7 +28,7 @@ const getUserByEmail = async (email) => {
     RETURNING *;
   `;
 
-    const queryParams = [username, email, bcrypt.hashSync(password, 10)];
+    const queryParams = [name, email, bcrypt.hashSync(password, 10)];
 
     try {
       const res = await db.query(queryString, queryParams);
@@ -39,6 +39,7 @@ const getUserByEmail = async (email) => {
 
     }
   }
+
 
 
 module.exports = { getUserByEmail , addUser };
