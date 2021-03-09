@@ -1,31 +1,44 @@
+const { db } = require('../db/index');
+const brcypt = require('bcrypt');
 
-module.expots = (db) => {
-    const getUsers = () => {
-      const query = {
-        text: `SELECT * FROM users;`,
-      };
-      return db.query(query).then((result) => result.rows);
-    };
-    const addUser = (username, email, password) => {
-      const query = {
-        text: `
-        INSERT INTO users(username, email, password)
-        VALUES ($1, $2, $3)
-        RETURNING *;
-        `,
-        values: [username, email, password]
-      }
-    }
-    const isUser = email => {
-      const query = {
-        text: `
-        SELECT * FROM users
-        WHERE users.email = $1;
-        `,
-        values: [email]
-      };
-      return db.query(query).then(res => res.rows.length > 0);
-    };
+const getUserByEmail = async (email) => {
+  const queryString = `
+  SELECT * FROM users
+  WHERE email = $1
+  `;
+  const queryParams = [email];
+  console.log("get user results:", db);
+  const res = await db.query(queryString, queryParams);
+  console.log('My Results!:', res);
+  console.log(res.rows.length);
+  return res.rows[0];
+  // try {
 
-    return { getUsers, addUser, isUser }
+  // } catch (err) {
+  //   console.error('query error', err.stack);
+  // }
 }
+  // add user to the database using bcrypt.
+  const addUser = async (obj) => {
+    const { username, email, password } = obj;
+
+    const queryString = `
+    INSERT INTO users (username, email, password)
+    VALUES ($1, $2, $3)
+    RETURNING *;
+  `;
+
+    const queryParams = [username, email, bcrypt.hashSync(password, 10)];
+
+    try {
+      const res = await db.query(queryString, queryParams);
+      return res.rows[0];
+
+    } catch (err) {
+      console.error('query error', err.stack);
+
+    }
+  }
+
+
+module.exports = { getUserByEmail , addUser };
