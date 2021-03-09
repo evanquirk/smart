@@ -15,7 +15,6 @@ module.exports = () => {
       password: req.body.newPassword
     }
     const user = await getUserByEmail(input.email);
-    console.log("user:", user);
     if (user) {
       res.render('../views/user_lists.ejs');
     } else {
@@ -28,4 +27,3 @@ module.exports = () => {
 
   return router;
 }
-// TO GO THROUGH AND MAP TO OUR DATABASE.
