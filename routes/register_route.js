@@ -1,35 +1,30 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcrypt');
+const { getUserByEmail, addUser } = require('../helpers/dbHelpers');
 
-module.exports = ({ addUser, isUser }) => {
-  // router.get('/register', (req, res) => {
-  //   const templateVars= {
-  //     user: req.session["user"],
-  //     userId: req.session["user_id"]
-  //   };
-  //   res.render("/", templateVars);
-  // });
+module.exports = () => {
+  router.get('/', (req, res) => {
+    res.render('index');
+  })
 
-//   router.post("/register", (req, res) => {
-//     const { name, email, password } = req.body;
-//     isUser(email).then(function(user) {
-//       if (!user) {
-//         addUser (name, email, password).then(row => {
-//           const userId = row.id;
-//           const user = row;
-//           req.session["user"] = user;
-//           req.session["user_id"] = userId;
-//           res.redirect["/"];
-//         });
-//       } else {
-//         res
-//           .status(400)
-//           .send("Please login.");
-//           return;
-//     }
+  router.post('/', async (req, res) => {
+    const input = {
+      name: req.body.newUsername,
+      email: req.body.newEmail,
+      password: req.body.newPassword
+    }
+    const user = await getUserByEmail(input.email);
+    console.log("user:", user);
+    if (user) {
+      res.render('../views/user_lists.ejs');
+    } else {
+      const addingUser = await addUser(input);
+      req.session = { user_id: addingUser.id };
+      res.render('../views/user_lists.ejs');
+    }
 
-//   });
-// });
+  });
 
   return router;
 }

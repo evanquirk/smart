@@ -4,7 +4,6 @@ const logInSlider = function () {
   $('.logIn').hide();
   $('.login-button').click(function () {
     $('.register').hide();
-    console.log("GET THAT LOG IN")
     $('.logIn').slideToggle(400, function () {
       $('#log-in-email').focus();
     });
@@ -16,7 +15,6 @@ const registerSlider = function () {
   $('.register').hide();
   $('.register-button').click(function () {
     $('.logIn').hide();
-    console.log("GET THAT REGISTER")
     $('.register').slideToggle(400, function () {
       $('#register-email').focus();
     });
