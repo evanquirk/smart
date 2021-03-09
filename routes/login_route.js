@@ -7,7 +7,7 @@ module.exports = () => {
   //load login/register page
   router.get('/', (req, res) => {
     if (req.session.user) {
-      res.redirect('../views/user_lists.ejs');
+      res.render('../views/user_lists.ejs');
 
     } else {
       let templateVars = {
@@ -25,14 +25,12 @@ module.exports = () => {
         res.json({error: 'User does not exist'});
 
       } else {
-        console.log('REQBODYPASS:',req.body.password);
-        console.log('USERPASS:', user.password);
         if (!bcrypt.compareSync(req.body.password, user.password)) {
           res.json({error: 'Password does not match'});
 
         } else {
           req.session = {user_id: user.id};
-          res.redirect('../views/user_lists.ejs');
+          res.render('../views/user_lists.ejs');
 
         }
       }
