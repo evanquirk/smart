@@ -55,12 +55,12 @@
   margin-top: -.75em;
 }
 
-input[name="login-email"] {
+input[name="email"] {
   width: 30%;
   margin: 1em;
 }
 
-input[name="login-password"] {
+input[name="password"] {
   width: 30%;
   margin-left: 1em;
   margin-right: 1em;
@@ -92,17 +92,17 @@ label[for=password] {
   background-color: #5059a7e5
 }
 
-input[name="register-username"] {
+input[name="newUsername"] {
   width: 20%;
   margin: 1em;
 }
 
-input[name="register-email"] {
+input[name="newEmail"] {
   width: 20%;
   margin: 1em;
 }
 
-input[name="register-password"] {
+input[name="newPassword"] {
   width: 20%;
   margin-left: 1em;
   margin-right: 1em;
