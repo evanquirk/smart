@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const bcrypt = require('bcrypt');
-const { getUserByEmail } = require('../helpers/dbHelpers')
+const { getUserByEmail } = require('../helpers/authQueries')
 
 module.exports = () => {
   //load login/register page
