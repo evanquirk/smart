@@ -6,11 +6,11 @@ const PORT       = process.env.PORT || 8080;
 const ENV        = process.env.ENV || "development";
 const express    = require("express");
 const bodyParser = require("body-parser");
+const bcrypt     = require('bcrypt');
 const cookieSession = require('cookie-session');
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
-const { isUserLogged } = require('./helpers/middleRouter')
 
 // PG database client/connection setup
 const { db } = require('./db/index');
@@ -37,19 +37,18 @@ app.use(cookieSession({
   keys: ["evan", "thomas"],
 }));
 
-app.use(isUserLogged);
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 
 
-const usersRoute = require("./routes/users");
+// const usersRoute = require("./routes/users");
 const loginRoute = require("./routes/login_route");
 const logoutRoute = require("./routes/logout_route");
 const registerRoute = require("./routes/register_route");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/users", usersRoute());
+// app.use("/users", usersRoute());
 app.use("/login", loginRoute());
 app.use("/logout", logoutRoute());
 app.use("/register", registerRoute());
