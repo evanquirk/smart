@@ -1,0 +1,32 @@
+<!doctype html>
+<script>
+  function getBooks() {
+    document.getElementById("output").innerHTML = "";
+    fetch("https://www.googleapis.com/books/v1/volumes?q=" + document.getElementById("input").value)
+      .then(a => a.json())
+      .then(response => {
+        document.getElementById("output").innerHTML += "<p>" + response.items[0].volumeInfo.title + "<p>" +
+          response.items[0].volumeInfo.authors[0] + "<p>" + response.items[0].volumeInfo.publishedDate
+          + "<p>"
+      })
+
+    document.getElementById("output").innerHTML = "";
+    fetch("https://www.googleapis.com/books/v1/volumes?q=" + document.getElementById("input").value)
+      .then(a => a.json())
+      .then(response => {
+        for (let i = 0; i < 4; i++) {
+          if (response.items[i].volumeInfo.description.length > 100) {
+            document.getElementById("output").innerHTML += response.items[i].volumeInfo.description;
+            break;
+          }
+          else {
+            document.getElementById("output").innerHTML += response.items[i].volumeInfo.description;
+          }
+        }
+      })
+  }
+</script>
+
+<input id="input">
+<button onclick="getBooks()">Find book</button><br>
+<div id="output"></div>
