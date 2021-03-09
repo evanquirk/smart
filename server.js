@@ -42,9 +42,10 @@ app.use(cookieSession({
 
 
 // const usersRoute = require("./routes/users");
-const loginRoute = require("./routes/login_route");
-const logoutRoute = require("./routes/logout_route");
-const registerRoute = require("./routes/register_route");
+const loginRoute = require("./routes/loginRoute");
+const logoutRoute = require("./routes/logoutRoute");
+const registerRoute = require("./routes/registerRoute");
+const userListsRoute = require("./routes/userListsRoute");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -52,6 +53,7 @@ const registerRoute = require("./routes/register_route");
 app.use("/login", loginRoute());
 app.use("/logout", logoutRoute());
 app.use("/register", registerRoute());
+app.use("/user-lists", userListsRoute());
 // Note: mount other resources here, using the same pattern above
 
 
