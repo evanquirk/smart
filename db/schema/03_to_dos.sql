@@ -5,7 +5,7 @@ CREATE TABLE to_dos (
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   lists_id INTEGER REFERENCES lists(id) ON DELETE CASCADE,
   to_do_name VARCHAR(255) NOT NULL,
-  api_source NOT NULL,
+  input TEXT NOT NULL,
   to_do_description VARCHAR(255) NOT NULL,
   date_created DATE NOT NULL
 );
