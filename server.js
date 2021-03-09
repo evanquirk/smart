@@ -6,14 +6,14 @@ const PORT       = process.env.PORT || 8080;
 const ENV        = process.env.ENV || "development";
 const express    = require("express");
 const bodyParser = require("body-parser");
+const cookieSession = require('cookie-session');
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const { isUserLogged } = require('./helpers/middleRouter')
 
 // PG database client/connection setup
-const { Pool } = require('pg');
-const dbParams = require('./lib/db.js');
-const db = new Pool(dbParams);
+const { db } = require('./db/index');
 db.connect();
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -23,6 +23,7 @@ app.use(morgan('dev'));
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use("/styles", sass({
   src: __dirname + "/styles",
   dest: __dirname + "/public/styles",
@@ -31,17 +32,27 @@ app.use("/styles", sass({
 }));
 app.use(express.static("public"));
 
+app.use(cookieSession({
+  name: "session",
+  keys: ["evan", "thomas"],
+}));
+
+app.use(isUserLogged);
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
+
+
+const usersRoute = require("./routes/users");
 const loginRoute = require("./routes/login_route");
 const logoutRoute = require("./routes/logout_route");
+const registerRoute = require("./routes/register_route");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/users", usersRoutes(db));
-app.use("/login", loginRoute(db));
-app.use("/logout", logoutRoute(db));
+app.use("/users", usersRoute());
+app.use("/login", loginRoute());
+app.use("/logout", logoutRoute());
+app.use("/register", registerRoute());
 // Note: mount other resources here, using the same pattern above
 
 
@@ -49,7 +60,7 @@ app.use("/logout", logoutRoute(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+    res.render("index");
 });
 
 app.listen(PORT, () => {
