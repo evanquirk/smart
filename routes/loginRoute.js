@@ -7,20 +7,19 @@ module.exports = () => {
   //load login/register page
   router.get('/', (req, res) => {
     if (req.session.user) {
-      res.render('../views/user_lists.ejs');
+      res.redirect('/user-lists');
 
     } else {
       let templateVars = {
         user: {id: undefined, username: null}
       };
-      res.render('login', templateVars);
+      res.redirect('/', templateVars);
     }
   });
 
   router.post('/', (req, res) => {
     getUserByEmail(req.body.email)
     .then(user => {
-      console.log('MYUSER', user);
       if (!user) {
         res.json({error: 'User does not exist'});
 
@@ -30,7 +29,7 @@ module.exports = () => {
 
         } else {
           req.session = {user_id: user.id};
-          res.render('../views/user_lists.ejs');
+          res.redirect('/user-lists');
 
         }
       }

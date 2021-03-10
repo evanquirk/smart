@@ -13,7 +13,7 @@ db.connect();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM users;`)
-    console.log('db:',db)
+    // console.log('db:',db)
     .then(data => {
         const users = data.rows;
         res.json({ users });

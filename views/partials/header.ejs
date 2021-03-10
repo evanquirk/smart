@@ -1,48 +1,21 @@
  <!-- App CSS -->
  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-<% let user = false; %>
 <header>
   <nav id="navigation">
     <div class="logo"> SORT.ID
       </div>
     </div>
     <div id="right-nav">
-    <% if (!user) { %>
-      <p>Hello! Please sign in.</p>
-    <div id="right-nav-buttons">
-      <button type="button" class="register-button">Register</button>&nbsp;
-      <button type="button" class="login-button">Login</button>
-    </div>
-    </div>
-    <% } else { %>
+    <!-- <% if (!user) { %>
+
+    <% } else { %> -->
       <form method = "POST" action="/logout" class ="form-inline">
-    <label>Hello, <%= user.email %></label>
+    <label>Hello, <%= user.username %></label>
       <button type="submit" class="logout">Log Out</button>&nbsp;
     </div>
     </div>
-    <% } %>
+    <!-- <% } %> -->
   </nav>
-
-  <!-- Log in Form -->
-  <form action="/login" class="logIn" method="POST">
-    <label for="email">Email:</label>
-    <input type="email" name="email">
-      <label for="password">Password:</label>
-    <input type="password" name="password"></input>
-    <button type="submit" class="submit-login">Login</button>
-    </form>
-
-    <!-- Register Form -->
-    <form action="/register" class="register" method="POST">
-      <label for="username">Username:</label>
-      <input type="username" name="newUsername">
-      <label for="email">Email:</label>
-      <input type="email" name="newEmail">
-        <label for="password">Password:</label>
-      <input type="password" name="newPassword"></input>
-      <button type="submit" class="submit-register">Register</button>
-      </form>
-
 </header>
 
 <!-- if(user logged in) handling needs to be implemented -->

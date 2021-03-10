@@ -11,6 +11,7 @@ const cookieSession = require('cookie-session');
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const { getUserById } = require('./helpers/authQueries')
 
 // PG database client/connection setup
 const { db } = require('./db/index');
@@ -60,8 +61,15 @@ app.use("/user-lists", userListsRoute());
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+
+
 app.get("/", (req, res) => {
+  const userId = req.session.user_id;
+  if (!userId) {
     res.render("index");
+  } else {
+    res.redirect("/user-lists")
+  }
 });
 
 app.listen(PORT, () => {

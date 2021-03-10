@@ -22,7 +22,7 @@ module.exports = () => {
     } else {
       const addingUser = await addUser(input);
       req.session = { user_id: addingUser.id };
-      res.redirect('/user-lists', {});
+      res.redirect('/user-lists');
     }
 
   });

@@ -1,6 +1,6 @@
 const { db } = require('../db/index');
 
-const listById = async (id) => {
+const toDoById = async (id) => {
   const queryString = `
     SELECT *
     FROM lists
@@ -19,4 +19,4 @@ const listById = async (id) => {
   }
 }
 
-module.exports = { listById };
+module.exports = { toDoById };
