@@ -24,6 +24,7 @@ const searchBooks = function (searchTerms) {
             ". " + response.items[i].volumeInfo.description;
         }
       }
+      result1.type = "to_read";
       results.push(result1);
       result2.name = response.items[1].volumeInfo.title;
       result2.description =
@@ -40,6 +41,7 @@ const searchBooks = function (searchTerms) {
             ". " + response.items[i].volumeInfo.description;
         }
       }
+      result2.type = "to_watch";
       results.push(result2);
       return results;
     });
