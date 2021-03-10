@@ -234,3 +234,6 @@ const searchItems = function (searchTerms) {
   console.log(results[0].item, results[1].item, results[2].item);
   return results[0].item, results[1].item, results[2].item;
 };
+
+
+module.exports = { searchYelp, searchMovies, searchBooks, searchItems };
