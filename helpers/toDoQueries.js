@@ -19,4 +19,9 @@ const toDoById = async (id) => {
   }
 }
 
+const getSearchResults = async (allResults) => {
+  const queryString = `
+    SELECT `
+}
+
 module.exports = { toDoById };

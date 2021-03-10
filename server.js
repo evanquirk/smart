@@ -47,6 +47,8 @@ const loginRoute = require("./routes/loginRoute");
 const logoutRoute = require("./routes/logoutRoute");
 const registerRoute = require("./routes/registerRoute");
 const userListsRoute = require("./routes/userListsRoute");
+const toDoRoute = require("./routes/toDoRoute")
+const deleteTaskRoute = require("./routes/deleteTaskRoute");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -55,6 +57,8 @@ app.use("/login", loginRoute());
 app.use("/logout", logoutRoute());
 app.use("/register", registerRoute());
 app.use("/user-lists", userListsRoute());
+app.use("/todo", toDoRoute());
+app.use("/deleteTask", deleteTaskRoute());
 // Note: mount other resources here, using the same pattern above
 
 

@@ -1,11 +1,14 @@
 const express = require('express');
 const router  = express.Router();
+const { toDoById } = require('../helpers/toDoQueries');
+const { getUserById } = require('../helpers/authQueries')
 const { yelpSearch } = require('../apiQueries');
 
 
 
 module.exports = () => {
   router.post("/", async (req, res) => {
+
     const todoSearch = req.body.todo
     const yelpObjs = yelpSearch(ip, todoSearch)
 
@@ -18,7 +21,14 @@ module.exports = () => {
   });
 
   router.get("/", async (req, res) => {
-    // make a queries to get the alltheobj from the database = templateVars
+    const user = await getUserById(req.session.user_id);
+    const toDo = await toDoById(req.session.user_id);
+    let templateVars = {
+      user: user,
+      toDo: toDo
+    }
+    console.log(templateVars)
+
    res.render("../views/todo.ejs", templateVars)
 
   });
