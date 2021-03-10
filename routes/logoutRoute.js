@@ -5,7 +5,7 @@ module.exports = () => {
   //logs user out and clears the cookie session
   router.post("/", (req, res) => {
    req.session = null;
-   res.redirect("/login")
+   res.redirect("/")
   });
 
   return router;
