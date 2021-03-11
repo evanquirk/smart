@@ -108,13 +108,13 @@ const fuse = new Fuse(items, {
 
 const searchItems = function (searchTerms) {
   const results = fuse.search(searchTerms);
-  let resultArr = [];
+  let resultsArr = [];
   for (let i = 0; i < 3; i++) {
     if (results[i]) {
-      results.push(results[i].item);
+      resultsArr.push(results[i].item);
     }
   }
-  return resultArr;
+  return resultsArr;
 };
 
 module.exports = { searchItems };
