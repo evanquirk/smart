@@ -8,13 +8,14 @@ module.exports = () => {
     res.redirect('/');
   })
 
+  //====================================
+
   router.post('/', async (req, res) => {
     const input = {
       name: req.body.newUsername,
       email: req.body.newEmail,
       password: req.body.newPassword
     }
-
 
     const user = await getUserByEmail(input.email);
     if (user) {

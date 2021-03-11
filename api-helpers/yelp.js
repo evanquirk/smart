@@ -87,12 +87,9 @@ const getCoordsFromIP = function (ip, searchTerms) {
               results.push(result3);
             }
           }
-          console.log(results);
           return results;
         });
     });
 };
-
-searchYelp('coco')
 
 module.exports = { searchYelp };

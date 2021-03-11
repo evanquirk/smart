@@ -6,7 +6,8 @@
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
+  <link rel="stylesheet" href="/styles/user-lists.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -28,11 +29,282 @@
     <!-- Navigation Bar -->
     <%- include partials/header -%>
 
+    <!-- Add To-Do Box -->
+    <div class="search-bar">
+      <form action="/todo" id="todo-search" method="POST">
+        <textarea name="todo" id="to-do" class="text-area" placeholder="What would you like to do later?"></textarea>
+        <button type="submit">Add To-Do</button>
+      </form>
+    </div>
 
+    <!-- Search Results -->
+    <% if (results) { %>
+      <article class="preview-box">
+        <table>
+          <thead>
+            <tr><th>To Watch</th></tr>
+          </thead>
+          <tbody>
+            <% for (const result of results) { %>
+              <% if (result.type === 'to_watch') { %>
+                <td>
+                  <form method="POST" action="/user-lists">
+                    <input type="hidden" name="description" value="<%= result.description %>">
+                    <input type="hidden" name="name" value="<%= result.name %>">
+                    <input type="hidden" name="type" value="<%= result.type %>">
+                    <button type="submit"><%= result.name %></button>
+                  </form>
+                </td>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+        <table>
+          <thead>
+            <tr><th>To Read</th></tr>
+          </thead>
+          <tbody>
+            <% for (const result of results) { %>
+              <% if (result.type === 'to_read') { %>
+                <td>
+                  <form method="POST" action="/user-lists">
+                    <input type="hidden" name="description" value="<%= result.description %>">
+                    <input type="hidden" name="name" value="<%= result.name %>">
+                    <input type="hidden" name="type" value="<%= result.type %>">
+                    <button type="submit"><%= result.name %></button>
+                  </form>
+                </td>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+        <table>
+          <thead>
+            <tr><th>To Eat</th></tr>
+          </thead>
+          <tbody>
+            <% for (const result of results) { %>
+              <% if (result.type === 'to_eat') { %>
+                <td>
+                  <form method="POST" action="/user-lists">
+                    <input type="hidden" name="description" value="<%= result.description %>">
+                    <input type="hidden" name="name" value="<%= result.name %>">
+                    <input type="hidden" name="type" value="<%= result.type %>">
+                    <button type="submit"><%= result.name %></button>
+                  </form>
+                </td>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+        <table>
+          <thead>
+            <tr><th>To Buy</th></tr>
+          </thead>
+          <tbody>
+            <% for (const result of results) { %>
+              <% if (result.type === 'to_buy') { %>
+                <td>
+                  <form method="POST" action="/user-lists">
+                    <input type="hidden" name="description" value="<%= result.description %>">
+                    <input type="hidden" name="name" value="<%= result.name %>">
+                    <input type="hidden" name="type" value="<%= result.type %>">
+                    <button type="submit"><%= result.name %></button>
+                  </form>
+                </td>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+        <table>
+          <thead>
+            <tr><th>Uncategorized</th></tr>
+          </thead>
+          <tbody>
+            <% for (const result of results) { %>
+              <% if (!result.type) { %>
+                <td>
+                  <form method="POST" action="/user-lists">
+                    <input type="hidden" name="description" value="<%= result.description %>">
+                    <input type="hidden" name="name" value="<%= result.name %>">
+                    <input type="hidden" name="type" value="<%= result.type %>">
+                    <button type="submit"><%= result.name %></button>
+                  </form>
+                </td>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+      </article>
+    <% } %>
 
     <!-- To-Do Lists -->
-    <section class="lists">
-      <article class="to-watch">
+    <div class="lists">
+
+      <div class="list to-watch">
+        <h3>To Watch</h3>
+        <table>
+          <thead class="table head">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody class="table body">
+            <% for (const toDo of toDos) { %>
+              <% if (toDo.lists_id === 1) { %>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td><%= toDo.to_do_name %></td>
+                  <td><%= toDo.to_do_description %></td>
+                  <td>
+                    <form method="POST" action="/todo/<%=toDo.id %>/delete">
+                      <button type="submit">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="list to-read">
+        <h3>To Read</h3>
+        <table>
+          <thead class="table head">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody class="table body">
+            <% for (const toDo of toDos) { %>
+              <% if (toDo.lists_id === 2) { %>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td><%= toDo.to_do_name %></td>
+                  <td><%= toDo.to_do_description %></td>
+                  <td>
+                    <form method="POST" action="/todo/<%=toDo.id %>/delete">
+                      <button type="submit">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="list to-eat">
+        <h3>To Eat</h3>
+        <table>
+          <thead class="table head">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody class="table body">
+            <% for (const toDo of toDos) { %>
+              <% if (toDo.lists_id === 3) { %>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td><%= toDo.to_do_name %></td>
+                  <td><%= toDo.to_do_description %></td>
+                  <td>
+                    <form method="POST" action="/todo/<%=toDo.id %>/delete">
+                      <button type="submit">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="list to-buy">
+        <h3>To Buy</h3>
+        <table>
+          <thead class="table head">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody class="table body">
+            <% for (const toDo of toDos) { %>
+              <% if (toDo.lists_id === 4) { %>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td><%= toDo.to_do_name %></td>
+                  <td><%= toDo.to_do_description %></td>
+                  <td>
+                    <form method="POST" action="/todo/<%=toDo.id %>/delete">
+                      <button type="submit">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="list uncategorized">
+        <h3>Uncategorized</h3>
+        <table>
+          <thead class="table head">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody class="table body">
+            <% for (const toDo of toDos) { %>
+              <% if (toDo.lists_id === 5) { %>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td><%= toDo.to_do_name %></td>
+                  <td><%= toDo.to_do_description %></td>
+                  <td>
+                    <form method="POST" action="/todo/<%=toDo.id %>/delete">
+                      <button type="submit">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- <article class="to-watch">
         <header>
           <div class="list-name">To Watch</div>
         </header>
@@ -64,9 +336,7 @@
         <article class="list-entry">
           <div class="title">Moby-Dick (1851)</div>
           <div class="author">Herman Melville</div>
-          <div class="description">A literary classic that wasn't recognized for its merits until decades after its
-            publication, Herman Melville's Moby-Dick tells the tale of a whaling ship and its crew, who are carried
-            progressively further out to sea by the fiery Captain Ahab.</div>
+          <div class="description"></div>
           <div class="notes">[notes]</div>
           <div class="footer">
             <button class="edit">Edit</button>&nbsp;
@@ -125,8 +395,7 @@
         <p>
         <div></div>
         </p>
-      </article>
-    </section>
+      </article> -->
 
   </main>
 </body>

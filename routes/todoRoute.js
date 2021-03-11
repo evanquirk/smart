@@ -1,7 +1,8 @@
 const express = require('express');
 const router  = express.Router();
-const { toDoById, insertSearchResults, getSearchResults } = require('../helpers/toDoQueries');
+const { insertSearchResults, getSearchResults, deleteSearchResults, deleteTodo } = require('../helpers/toDoQueries');
 const { getUserById } = require('../helpers/authQueries');
+
 const { searchYelp } = require('../api-helpers/yelp');
 const { searchBooks } = require('../api-helpers/books');
 const { searchMovies } = require('../api-helpers/movies');
@@ -9,9 +10,15 @@ const { searchItems } = require('../api-helpers/grocery-items');
 
 
 module.exports = () => {
-  router.post("/", async (req, res) => {
-    const todoSearch = req.body.todo
 
+  router.post("/", async (req, res) => {
+    const searchResults = await getSearchResults();
+    console.log(searchResults);
+    if (searchResults) {
+      await deleteSearchResults();
+    }
+
+    const todoSearch = req.body.todo
     const yelpPromise = searchYelp(todoSearch)
     const bookPromise = searchBooks(todoSearch)
     const moviePromise = searchMovies(todoSearch)
@@ -22,25 +29,18 @@ module.exports = () => {
       return [...values[0],...values[1],...values[2],...grocery]
     }).then(results => {
       return insertSearchResults(results)
-    }).finally(() => res.redirect('/todo'))
+    }).finally(() => res.redirect('/user-lists'))
   });
 
-  router.get("/", async (req, res) => {
-    const user = await getUserById(req.session.user_id);
-    const searchResults = await getSearchResults();
-    console.log(searchResults.length, ":", searchResults);
-    let results
-    if (!searchResults) {
-      results = null
-    } else {
-      results = JSON.parse(searchResults.results)
-    }
-    const templateVars = {
-      user,
-      results
-    }
 
-   res.render("../views/todo.ejs", templateVars)
+  //===========================================
+
+  router.post("/:id/delete", async (req, res) => {
+    const toDoId = req.params.id
+
+    await deleteTodo(toDoId)
+
+   res.redirect("/user-lists")
 
   });
 
