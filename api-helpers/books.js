@@ -3,7 +3,7 @@
 const fetch = require("node-fetch");
 
 const searchBooks = function (searchTerms) {
-  fetch("https://www.googleapis.com/books/v1/volumes?q=" + searchTerms)
+  return fetch("https://www.googleapis.com/books/v1/volumes?q=" + searchTerms)
     .then((a) => a.json())
     .then((response) => {
       let results = [];
@@ -41,7 +41,7 @@ const searchBooks = function (searchTerms) {
             ". " + response.items[i].volumeInfo.description;
         }
       }
-      result2.type = "to_watch";
+      result2.type = "to_read";
       results.push(result2);
       return results;
     });
