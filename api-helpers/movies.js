@@ -6,7 +6,7 @@ const fetch = require("node-fetch");
 const omdbKey = null;
 
 const searchMovies = function (searchTerms) {
-  fetch(`http://www.omdbapi.com/?apikey=${omdbKey}&t=` + searchTerms)
+  return fetch(`http://www.omdbapi.com/?apikey=${omdbKey}&t=` + searchTerms)
     .then((a) => a.json())
     .then((response) => {
       let results = [];
