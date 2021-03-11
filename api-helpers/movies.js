@@ -27,3 +27,5 @@ const searchMovies = function (searchTerms) {
 };
 
 module.exports = { searchMovies };
+
+
