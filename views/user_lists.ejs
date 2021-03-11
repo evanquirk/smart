@@ -29,6 +29,115 @@
     <!-- Navigation Bar -->
     <%- include partials/header -%>
 
+    <!-- Add To-Do Box -->
+    <div class="search-bar">
+      <form action="/todo" id="todo-search" method="POST">
+        <textarea name="todo" id="to-do" class="text-area" placeholder="What would you like to do later?"></textarea>
+        <button type="submit">Add To-Do</button>
+      </form>
+    </div>
+
+    <!-- Search Results -->
+    <% if (results) { %>
+      <article class="preview-box">
+        <table>
+          <thead>
+            <tr><th>To Watch</th></tr>
+          </thead>
+          <tbody>
+            <% for (const result of results) { %>
+              <% if (result.type === 'to_watch') { %>
+                <td>
+                  <form method="POST" action="/user-lists">
+                    <input type="hidden" name="description" value="<%= result.description %>">
+                    <input type="hidden" name="name" value="<%= result.name %>">
+                    <input type="hidden" name="type" value="<%= result.type %>">
+                    <button type="submit"><%= result.name %></button>
+                  </form>
+                </td>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+        <table>
+          <thead>
+            <tr><th>To Read</th></tr>
+          </thead>
+          <tbody>
+            <% for (const result of results) { %>
+              <% if (result.type === 'to_read') { %>
+                <td>
+                  <form method="POST" action="/user-lists">
+                    <input type="hidden" name="description" value="<%= result.description %>">
+                    <input type="hidden" name="name" value="<%= result.name %>">
+                    <input type="hidden" name="type" value="<%= result.type %>">
+                    <button type="submit"><%= result.name %></button>
+                  </form>
+                </td>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+        <table>
+          <thead>
+            <tr><th>To Eat</th></tr>
+          </thead>
+          <tbody>
+            <% for (const result of results) { %>
+              <% if (result.type === 'to_eat') { %>
+                <td>
+                  <form method="POST" action="/user-lists">
+                    <input type="hidden" name="description" value="<%= result.description %>">
+                    <input type="hidden" name="name" value="<%= result.name %>">
+                    <input type="hidden" name="type" value="<%= result.type %>">
+                    <button type="submit"><%= result.name %></button>
+                  </form>
+                </td>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+        <table>
+          <thead>
+            <tr><th>To Buy</th></tr>
+          </thead>
+          <tbody>
+            <% for (const result of results) { %>
+              <% if (result.type === 'to_buy') { %>
+                <td>
+                  <form method="POST" action="/user-lists">
+                    <input type="hidden" name="description" value="<%= result.description %>">
+                    <input type="hidden" name="name" value="<%= result.name %>">
+                    <input type="hidden" name="type" value="<%= result.type %>">
+                    <button type="submit"><%= result.name %></button>
+                  </form>
+                </td>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+        <table>
+          <thead>
+            <tr><th>Uncategorized</th></tr>
+          </thead>
+          <tbody>
+            <% for (const result of results) { %>
+              <% if (!result.type) { %>
+                <td>
+                  <form method="POST" action="/user-lists">
+                    <input type="hidden" name="description" value="<%= result.description %>">
+                    <input type="hidden" name="name" value="<%= result.name %>">
+                    <input type="hidden" name="type" value="<%= result.type %>">
+                    <button type="submit"><%= result.name %></button>
+                  </form>
+                </td>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+      </article>
+    <% } %>
+
     <!-- To-Do Lists -->
     <div class="lists">
 
