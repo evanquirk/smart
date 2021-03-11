@@ -81,22 +81,40 @@ const items = [
       "Organics Unlimited. Bananas are tasty, creamy and full of essential nutrients. They are also extremely high in potassium, over 467 mg per banana. $3.79 for 6 Bananas",
     type: "to_buy",
   },
+  {
+    name: "Organic Broccoli",
+    description:
+      "Various Growers in California. Broccoli is crispy, crunchy and good for you! This nutritious vegetable can be prepared a number of ways, we enjoy it steamed with a little butter and salt and pepper. $3.49 for 1 Bunch (~1.5lbs)",
+    type: "to_buy",
+  },
+  {
+    name: "Organic Carrots, Cello 2 lbs",
+    description:
+      "Various Growers in California. Carrots are one of our most favourite all-purpose vegetables. Serve them steamed, roasted, braised, boiled or even microwaved. Full of sweetness, we can't help but think the best use of carrots is in carrot cake! $3.99 for 2lb (907g) Bag",
+    type: "to_buy",
+  },
+  {
+    name: "Organic Celery",
+    description:
+      "Various Growers in California. Celery has a fresh clean taste and its crunch gives a nice texture to salads, soups, stews and casseroles. We enjoy celery served on its own with a creamy dip or peanut butter. $2.99 for 1 Celery Head",
+    type: "to_buy",
+  },
 ];
 
 const fuse = new Fuse(items, {
   keys: ["name"],
+  threshold: 0.3
 });
 
 const searchItems = function (searchTerms) {
   const results = fuse.search(searchTerms);
-  let resultsArr = [];
+  let results = [];
   for (let i = 0; i < 3; i++) {
     if (results[i]) {
-      resultsArr.push(results[i].item);
+      results.push(results[i].item);
     }
   }
-  console.log(resultsArr);
-  return resultsArr;
+  return results;
 };
 
 module.exports = { searchItems };

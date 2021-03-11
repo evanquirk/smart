@@ -3,13 +3,14 @@
 const yelp = require("yelp-fusion");
 const fetch = require("node-fetch");
 
+
 // insert API key here:
 const yelpKey = null;
 
 const client = yelp.client(yelpKey);
 
 const searchYelp = function (searchTerms) {
-  return fetch("https://api.ipify.org?format=json")
+  return fetch("https://api.ipify.org?format=json") // finds the user's IP address
     .then((a) => a.json())
     .then((response) => {
       return getCoordsFromIP(response.ip, searchTerms);
@@ -17,7 +18,9 @@ const searchYelp = function (searchTerms) {
 };
 
 const getCoordsFromIP = function (ip, searchTerms) {
-  return fetch(`https://freegeoip.app/json/${ip}`)
+  return fetch(`https://freegeoip.app/json/${ip}`) /* locates the user.
+    Of course, in a production app I'd need to get the user's permission before any of this,
+    I'd need to be compliant with the privacy laws of different countries, etc. */
     .then((a) => a.json())
     .then((response) => {
       const latitude = response.latitude;
