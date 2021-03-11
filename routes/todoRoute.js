@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const { toDoById, insertSearchResults, getSearchResults } = require('../helpers/toDoQueries');
+const { insertSearchResults, getSearchResults } = require('../helpers/toDoQueries');
 const { getUserById } = require('../helpers/authQueries');
 const { searchYelp } = require('../api-helpers/yelp');
 const { searchBooks } = require('../api-helpers/books');
@@ -9,9 +9,9 @@ const { searchItems } = require('../api-helpers/grocery-items');
 
 
 module.exports = () => {
+
   router.post("/", async (req, res) => {
     const todoSearch = req.body.todo
-
     const yelpPromise = searchYelp(todoSearch)
     const bookPromise = searchBooks(todoSearch)
     const moviePromise = searchMovies(todoSearch)
@@ -25,19 +25,46 @@ module.exports = () => {
     }).finally(() => res.redirect('/todo'))
   });
 
+
+  //===========================================
+
   router.get("/", async (req, res) => {
     const user = await getUserById(req.session.user_id);
     const searchResults = await getSearchResults();
-    console.log(searchResults.length, ":", searchResults);
     let results
+    // const toWatch =[];
+    // const toRead =[];
+    // const toEat =[];
+    // const toBuy =[];
+    // const uncategorized =[];
+
     if (!searchResults) {
       results = null
     } else {
+      // console.log('RESULTS:',JSON.parse(searchResults.results));
       results = JSON.parse(searchResults.results)
+      // for (result of results) {
+      //   if (result.type === 'to_watch') {
+      //     toWatch.push(result)
+      //   } else if (result.type === 'to_read') {
+      //     toRead.push(result)
+      //   } else if (result.type === 'to_eat') {
+      //     toEat.push(result)
+      //   } else if (result.type === 'to_buy') {
+      //     toBuy.push(result)
+      //   } else {
+      //     uncategorized.push(result)
+      //   }
+      // }
     }
     const templateVars = {
       user,
-      results
+      results,
+      // toWatch,
+      // toRead,
+      // toEat,
+      // toBuy,
+      // uncategorized
     }
 
    res.render("../views/todo.ejs", templateVars)

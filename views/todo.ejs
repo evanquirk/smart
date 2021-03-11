@@ -43,44 +43,65 @@
         Select a match:
       </label>
       <article class="preview-box">
-        <% if (results) {%>
+        <thead>
+          <tr>
+            <th scope="col">To Watch</th>
+            <th scope="col">To Read</th>
+            <th scope="col">To Eat</th>
+            <th scope="col">To Buy</th>
+            <th scope="col">Uncategorized</th>
+          </tr>
+        </thead>
+        <tbody>
           <% for (const result of results) { %>
             <% if (result.type === 'to_watch') { %>
-              <article class="api-1">
-                <form method="POST" action="/user-lists/<%= result.type %>/">
+              <td class="api-1">
+                <form method="POST" action="/user-lists">
                   <input type="hidden" name="description" value="<%= result.description %>">
                   <input type="hidden" name="name" value="<%= result.name %>">
+                  <input type="hidden" name="type" value="<%= result.type %>">
                   <button type="submit"><%= result.name %></button>
                 </form>
-              </article>
+              </td>
             <% } else if (result.type === 'to_read') { %>
-              <article class="api-2">
-                <form method="POST" action="/user-lists/<%= result.type %>/">
+              <td>
+                <form method="POST" action="/user-lists">
                   <input type="hidden" name="description" value="<%= result.description %>">
                   <input type="hidden" name="name" value="<%= result.name %>">
+                  <input type="hidden" name="type" value="<%= result.type %>">
                   <button type="submit"><%= result.name %></button>
                 </form>
-              </article>
+              </td>
             <% } else if (result.type === 'to_eat') { %>
-              <article class="api-3">
-                <<form method="POST" action="/user-lists/<%= result.type %>/">
+              <td>
+                <form method="POST" action="/user-lists">
                   <input type="hidden" name="description" value="<%= result.description %>">
                   <input type="hidden" name="name" value="<%= result.name %>">
+                  <input type="hidden" name="type" value="<%= result.type %>">
                   <button type="submit"><%= result.name %></button>
                 </form>
-              </article>
+              </td>
             <% } else if (result.type === 'to_buy') { %>
-              <article class="api-4">
-                <form method="POST" action="/user-lists/<%= result.type %>/">
+              <td>
+                <form method="POST" action="/user-lists">
                   <input type="hidden" name="description" value="<%= result.description %>">
                   <input type="hidden" name="name" value="<%= result.name %>">
+                  <input type="hidden" name="type" value="<%= result.type %>">
                   <button type="submit"><%= result.name %></button>
                 </form>
-              </article>
+              </td>
+            <% } else { %>
+              <td>
+                <form method="POST" action="/user-lists">
+                  <input type="hidden" name="description" value="<%= result.description %>">
+                  <input type="hidden" name="name" value="<%= result.name %>">
+                  <input type="hidden" name="type" value="<%= result.type %>">
+                  <button type="submit"><%= result.name %></button>
+                </form>
+              </td>
             <% } %>
           <% } %>
-        <% } %>
-      </article>
+        </tbody>
     </section>
 
   </main>
