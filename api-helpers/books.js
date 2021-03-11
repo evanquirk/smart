@@ -39,7 +39,10 @@ const searchBooks = function (searchTerms) {
         result2.type = "to_read";
         results.push(result2);
       }
+<<<<<<< HEAD
       console.log(results);
+=======
+>>>>>>> 9ec69f0bccf67d70eced497582a073fbf3cce793
       return results;
     });
 };

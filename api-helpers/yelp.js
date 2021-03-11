@@ -9,20 +9,20 @@ const yelpKey = null;
 const client = yelp.client(yelpKey);
 
 const searchYelp = function (searchTerms) {
-  fetch("https://api.ipify.org?format=json")
+  return fetch("https://api.ipify.org?format=json")
     .then((a) => a.json())
     .then((response) => {
-      getCoordsFromIP(response.ip, searchTerms);
+      return getCoordsFromIP(response.ip, searchTerms);
     });
 };
 
 const getCoordsFromIP = function (ip, searchTerms) {
-  fetch(`https://freegeoip.app/json/${ip}`)
+  return fetch(`https://freegeoip.app/json/${ip}`)
     .then((a) => a.json())
     .then((response) => {
       const latitude = response.latitude;
       const longitude = response.longitude;
-      client
+      return client
         .search({
           term: searchTerms,
           latitude: latitude,
@@ -74,5 +74,8 @@ const getCoordsFromIP = function (ip, searchTerms) {
         });
     });
 };
+
+
+
 
 module.exports = { searchYelp };
