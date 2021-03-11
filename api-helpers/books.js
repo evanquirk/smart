@@ -63,7 +63,6 @@ const searchBooks = function (searchTerms) {
         result2.type = "to_read";
         results.push(result2);
       }
-      console.log(results);
       return results;
     });
 };

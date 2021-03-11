@@ -6,6 +6,6 @@ CREATE TABLE to_dos (
   lists_id INTEGER REFERENCES lists(id) ON DELETE CASCADE,
   to_do_name VARCHAR(255) NOT NULL,
   to_do_type VARCHAR(50),
-  to_do_description VARCHAR(255),
+  to_do_description VARCHAR(10000),
   input TEXT
 );
