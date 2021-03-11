@@ -14,9 +14,21 @@ const searchBooks = function (searchTerms) {
         if (response.items[0].volumeInfo.authors) {
           result1.description = response.items[0].volumeInfo.authors[0];
         }
-        if (response.items[0].volumeInfo.publishedDate) {
+        if (response.items[0].volumeInfo.authors === undefined) {
+          result1.description = "";
+        }
+        if (
+          response.items[0].volumeInfo.publishedDate &&
+          response.items[0].volumeInfo.authors !== undefined
+        ) {
           result1.description +=
             ", " + response.items[0].volumeInfo.publishedDate.slice(0, 4);
+        }
+        if (
+          response.items[0].volumeInfo.publishedDate &&
+          response.items[0].volumeInfo.authors === undefined
+        ) {
+          result1.description = response.items[0].volumeInfo.publishedDate.slice(0, 4);
         }
         if (response.items[0].volumeInfo.description) {
           result1.description +=
@@ -28,9 +40,21 @@ const searchBooks = function (searchTerms) {
         if (response.items[1].volumeInfo.authors) {
           result2.description = response.items[1].volumeInfo.authors[0];
         }
-        if (response.items[1].volumeInfo.publishedDate) {
+        if (response.items[1].volumeInfo.authors === undefined) {
+          result2.description = "";
+        }
+        if (
+          response.items[1].volumeInfo.publishedDate &&
+          response.items[1].volumeInfo.authors !== undefined
+        ) {
           result2.description +=
             ", " + response.items[1].volumeInfo.publishedDate.slice(0, 4);
+        }
+        if (
+          response.items[1].volumeInfo.publishedDate &&
+          response.items[1].volumeInfo.authors === undefined
+        ) {
+          result2.description = response.items[1].volumeInfo.publishedDate.slice(0, 4);
         }
         if (response.items[1].volumeInfo.description) {
           result2.description +=
@@ -43,6 +67,5 @@ const searchBooks = function (searchTerms) {
       return results;
     });
 };
-
 
 module.exports = { searchBooks };
