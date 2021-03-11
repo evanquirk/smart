@@ -83,7 +83,6 @@ const getCoordsFromIP = function (ip, searchTerms) {
               result1.type = "to_eat";
               results.push(result3);
             }
-            console.log(results);
           }
           return results;
         });
