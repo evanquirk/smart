@@ -1,9 +1,10 @@
-DROP TABLE IF EXISTS search_results CASCASE;
+DROP TABLE IF EXISTS search_results CASCADE;
 
 CREATE TABLE search_results (
   id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL,
-  description TEXT NOT NULL,
-  type TEXT NOT NULL
+  -- name TEXT,
+  -- description VARCHAR(255),
+  -- type TEXT
+  results VARCHAR
 );
 

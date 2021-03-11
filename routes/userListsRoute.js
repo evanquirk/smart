@@ -24,6 +24,12 @@ module.exports = () => {
    res.render("../views/user_lists.ejs", templateVars)
     // { lists: [], to_dos: "etc." )
   });
+  router.post("/", async (req, res) => {
+    console.log("REQ BODY:", req.body);
+
+    res.redirect('/user-lists')
+
+  });
 
   return router;
 };

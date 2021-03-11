@@ -4,25 +4,25 @@ const yelp = require("yelp-fusion");
 const fetch = require("node-fetch");
 
 // insert API key here:
-const yelpKey = null;
+const yelpKey = '6RXcVR53GBnlJ3hNSAyLBjsPTblI6nln3Xf5QdqqDW_rIVZOUnh-RQNEMCWwTCg0OISX0L51VDsecigNHJqOCE8dONoJYRjr925H6PBOUUnrJccO2YLb9J7MMGVGYHYx';
 
 const client = yelp.client(yelpKey);
 
 const searchYelp = function (searchTerms) {
-  fetch("https://api.ipify.org?format=json")
+  return fetch("https://api.ipify.org?format=json")
     .then((a) => a.json())
     .then((response) => {
-      getCoordsFromIP(response.ip, searchTerms);
+      return getCoordsFromIP(response.ip, searchTerms);
     });
 };
 
 const getCoordsFromIP = function (ip, searchTerms) {
-  fetch(`https://freegeoip.app/json/${ip}`)
+  return fetch(`https://freegeoip.app/json/${ip}`)
     .then((a) => a.json())
     .then((response) => {
       const latitude = response.latitude;
       const longitude = response.longitude;
-      client
+      return client
         .search({
           term: searchTerms,
           latitude: latitude,
@@ -74,5 +74,8 @@ const getCoordsFromIP = function (ip, searchTerms) {
         });
     });
 };
+
+
+
 
 module.exports = { searchYelp };
