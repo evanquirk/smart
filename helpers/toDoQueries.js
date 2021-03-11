@@ -58,8 +58,18 @@ const getSearchResults = async () => {
   }
 }
 
+const deleteSearchResults = async () => {
+  const queryString = `
+    DELETE FROM search_results;
+  `;
+  try {
+    await db.query(queryString);
+  } catch (err) {
+    console.error('query error', err.stack);
+  }
+}
+
 //=====================================
-// \/\/\/\/ NEED API KEYS TO FUNCTION TO PASS THIS INFO THROUGH. TRY IN MORNING! \/\/\/
 
 const addNewToDo = async (obj) => {
   const { userId, type, name, description } = obj;
@@ -95,4 +105,19 @@ const addNewToDo = async (obj) => {
 
 }
 
-module.exports = { toDoById , getSearchResults , insertSearchResults , addNewToDo };
+const deleteTodo = async (id) => {
+  const queryString = `
+    DELETE FROM to_dos
+    WHERE id = $1;
+  `;
+  const queryParams = [id]
+  try {
+    await db.query(queryString, queryParams);
+
+  } catch (err) {
+    console.error('query error', err.stack);
+  }
+}
+
+
+module.exports = { toDoById , getSearchResults , insertSearchResults , addNewToDo , deleteSearchResults , deleteTodo };
