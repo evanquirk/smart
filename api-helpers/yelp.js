@@ -33,49 +33,61 @@ const getCoordsFromIP = function (ip, searchTerms) {
           let result1 = {};
           let result2 = {};
           let result3 = {};
-          result1.name = response.jsonBody.businesses[0].name;
-          result1.description =
-            response.jsonBody.businesses[0].location.address1 +
-            ", " +
-            response.jsonBody.businesses[0].location.city +
-            ", " +
-            response.jsonBody.businesses[0].categories[0].title +
-            ", " +
-            response.jsonBody.businesses[0].price;
-          result1.type = "to_eat";
-          results.push(result1);
-          if (response.jsonBody.businesses[1].name) {
-            result2.name = response.jsonBody.businesses[1].name;
-            result2.description =
-              response.jsonBody.businesses[1].location.address1 +
+          if (response.jsonBody.businesses[0] !== undefined) {
+            result1.name = response.jsonBody.businesses[0].name;
+            result1.description =
+              response.jsonBody.businesses[0].location.address1 +
               ", " +
-              response.jsonBody.businesses[1].location.city +
-              ", " +
-              response.jsonBody.businesses[1].categories[0].title +
-              ", " +
-              response.jsonBody.businesses[1].price;
-            result2.type = "to_eat";
-            results.push(result2);
-          }
-          if (response.jsonBody.businesses[2].name) {
-            result3.name = response.jsonBody.businesses[2].name;
-            result3.description =
-              response.jsonBody.businesses[2].location.address1 +
-              ", " +
-              response.jsonBody.businesses[2].location.city +
-              ", " +
-              response.jsonBody.businesses[2].categories[0].title +
-              ", " +
-              response.jsonBody.businesses[2].price;
+              response.jsonBody.businesses[0].location.city;
+            if (response.jsonBody.businesses[0].categories[0].title) {
+              result1.description +=
+                ", " + response.jsonBody.businesses[0].categories[0].title;
+            }
+            if (response.jsonBody.businesses[0].price) {
+              result1.description +=
+                ", " + response.jsonBody.businesses[0].price;
+            }
             result1.type = "to_eat";
-            results.push(result3);
+            results.push(result1);
+            if (response.jsonBody.businesses[1].name) {
+              result2.name = response.jsonBody.businesses[1].name;
+              result2.description =
+                response.jsonBody.businesses[1].location.address1 +
+                ", " +
+                response.jsonBody.businesses[1].location.city;
+              if (response.jsonBody.businesses[1].categories[0].title) {
+                result2.description +=
+                  ", " + response.jsonBody.businesses[1].categories[0].title;
+              }
+              if (response.jsonBody.businesses[1].price) {
+                result2.description +=
+                  ", " + response.jsonBody.businesses[1].price;
+              }
+              result2.type = "to_eat";
+              results.push(result2);
+            }
+            if (response.jsonBody.businesses[2].name) {
+              result3.name = response.jsonBody.businesses[2].name;
+              result3.description =
+                response.jsonBody.businesses[2].location.address1 +
+                ", " +
+                response.jsonBody.businesses[2].location.city;
+              if (response.jsonBody.businesses[2].categories[0].title) {
+                result3.description +=
+                  ", " + response.jsonBody.businesses[2].categories[0].title;
+              }
+              if (response.jsonBody.businesses[2].price) {
+                result3.description +=
+                  ", " + response.jsonBody.businesses[2].price;
+              }
+              result1.type = "to_eat";
+              results.push(result3);
+            }
+            console.log(results);
           }
           return results;
         });
     });
 };
-
-
-
 
 module.exports = { searchYelp };
