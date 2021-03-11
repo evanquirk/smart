@@ -4,7 +4,7 @@ const yelp = require("yelp-fusion");
 const fetch = require("node-fetch");
 
 // insert API key here:
-const yelpKey = '6RXcVR53GBnlJ3hNSAyLBjsPTblI6nln3Xf5QdqqDW_rIVZOUnh-RQNEMCWwTCg0OISX0L51VDsecigNHJqOCE8dONoJYRjr925H6PBOUUnrJccO2YLb9J7MMGVGYHYx';
+const yelpKey = null;
 
 const client = yelp.client(yelpKey);
 
