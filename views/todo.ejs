@@ -47,26 +47,34 @@
           <% for (const result of results) { %>
             <% if (result.type === 'to_watch') { %>
               <article class="api-1">
-                <form action="/user-lists" class="new-todo" method="POST">
-                  <button type="submit" value="<% result %>"><%= result.name %></button>
+                <form method="POST" action="/user-lists/<%= result.type %>/">
+                  <input type="hidden" name="description" value="<%= result.description %>">
+                  <input type="hidden" name="name" value="<%= result.name %>">
+                  <button type="submit"><%= result.name %></button>
                 </form>
               </article>
             <% } else if (result.type === 'to_read') { %>
               <article class="api-2">
-                <form action="/user-lists" class="new-todo" method="POST">
-                  <button type="submit" value="<% result %>"><%= result.name %></button>
+                <form method="POST" action="/user-lists/<%= result.type %>/">
+                  <input type="hidden" name="description" value="<%= result.description %>">
+                  <input type="hidden" name="name" value="<%= result.name %>">
+                  <button type="submit"><%= result.name %></button>
                 </form>
               </article>
             <% } else if (result.type === 'to_eat') { %>
               <article class="api-3">
-                <form action="/user-lists" class="new-todo" method="POST">
-                  <button type="submit" value="<% result %>"><%= result.name %></button>
+                <<form method="POST" action="/user-lists/<%= result.type %>/">
+                  <input type="hidden" name="description" value="<%= result.description %>">
+                  <input type="hidden" name="name" value="<%= result.name %>">
+                  <button type="submit"><%= result.name %></button>
                 </form>
               </article>
             <% } else if (result.type === 'to_buy') { %>
               <article class="api-4">
-                <form action="/user-lists" class="new-todo" method="POST">
-                  <button type="submit" value="<% result %>"><%= result.name %></button>
+                <form method="POST" action="/user-lists/<%= result.type %>/">
+                  <input type="hidden" name="description" value="<%= result.description %>">
+                  <input type="hidden" name="name" value="<%= result.name %>">
+                  <button type="submit"><%= result.name %></button>
                 </form>
               </article>
             <% } %>
