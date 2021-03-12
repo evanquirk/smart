@@ -2,20 +2,17 @@
  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
 <header>
   <nav id="navigation">
-    <div class="logo"> SORT.ID
+    <div class="logo"> SORT.ID</div>
+     <div id="make-new-todo">
+        <button type="submit" class="make-new-todo">Make New To Do</button>
       </div>
-    </div>
-    <div id="right-nav">
-    <!-- <% if (!user) { %>
-
-    <% } else { %> -->
-      <form method = "POST" action="/logout" class ="form-inline">
-    <label>Hello, <%= user.username %></label>
-      <button type="submit" class="logout">Log Out</button>&nbsp;
-    </form>
-    </div>
-    <!-- <% } %> -->
-  </nav>
+          <div id="right-nav">
+            <form method="POST" action="/logout" class ="form-inline">
+              <label>Hello, <%= user.username %></label>
+                <button type="submit" class="logout">Log Out</button>&nbsp;
+             </form>
+          </div>
+   </nav>
 </header>
 
 <!-- if(user logged in) handling needs to be implemented -->
