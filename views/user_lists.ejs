@@ -17,6 +17,8 @@
 
   <!-- External CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;1,300&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- APP JS -->
   <script type="text/javascript" src="scripts/client.js"></script>
@@ -146,7 +148,6 @@
         <table>
           <thead class="table head">
             <tr>
-              <th scope="col"></th>
               <th scope="col">Name</th>
               <th scope="col">Description</th>
               <th scope="col"></th>
@@ -156,12 +157,11 @@
             <% for (const toDo of toDos) { %>
               <% if (toDo.lists_id === 1) { %>
                 <tr class="to-do-row">
-                  <td><input type="checkbox"></td>
                   <td><%= toDo.to_do_name %></td>
-                  <td><%= toDo.to_do_description %></td>
+                  <td class="description"><%= toDo.to_do_description %></td>
                   <td>
                     <form method="POST" action="/todo/<%=toDo.id %>/delete">
-                      <button type="submit">Delete</button>
+                      <button type="submit">Remove</button>
                       <br></br>
                     </form>
                   </td>
@@ -177,7 +177,6 @@
         <table>
           <thead class="table head">
             <tr class="to-do-row">
-              <th scope="col"></th>
               <th scope="col">Name</th>
               <th scope="col">Description</th>
               <th scope="col"></th>
@@ -187,12 +186,11 @@
             <% for (const toDo of toDos) { %>
               <% if (toDo.lists_id === 2) { %>
                 <tr>
-                  <td><input type="checkbox"></td>
                   <td><%= toDo.to_do_name %></td>
-                  <td><%= toDo.to_do_description %></td>
+                  <td class="description"><%= toDo.to_do_description %></td>
                   <td>
                     <form method="POST" action="/todo/<%=toDo.id %>/delete">
-                      <button type="submit">Delete</button>
+                      <button type="submit">Remove</button>
                       <br></br>
                     </form>
                   </td>
@@ -208,7 +206,6 @@
         <table>
           <thead class="table head">
             <tr class="to-do-row">
-              <th scope="col"></th>
               <th scope="col">Name</th>
               <th scope="col">Description</th>
               <th scope="col"></th>
@@ -218,12 +215,11 @@
             <% for (const toDo of toDos) { %>
               <% if (toDo.lists_id === 3) { %>
                 <tr class="to-do-row">
-                  <td><input type="checkbox"></td>
                   <td><%= toDo.to_do_name %></td>
-                  <td><%= toDo.to_do_description %></td>
+                  <td class="description"><%= toDo.to_do_description %></td>
                   <td>
                     <form method="POST" action="/todo/<%=toDo.id %>/delete">
-                      <button type="submit">Delete</button>
+                      <button type="submit">Remove</button>
                       <br></br>
                     </form>
                   </td>
@@ -239,7 +235,6 @@
         <table>
           <thead class="table head">
             <tr class="to-do-row">
-              <th scope="col"></th>
               <th scope="col">Name</th>
               <th scope="col">Description</th>
               <th scope="col"></th>
@@ -249,12 +244,11 @@
             <% for (const toDo of toDos) { %>
               <% if (toDo.lists_id === 4) { %>
                 <tr>
-                  <td><input type="checkbox"></td>
                   <td><%= toDo.to_do_name %></td>
-                  <td><%= toDo.to_do_description %></td>
+                  <td class="description"><%= toDo.to_do_description %></td>
                   <td>
                     <form method="POST" action="/todo/<%=toDo.id %>/delete">
-                      <button type="submit">Delete</button>
+                      <button type="submit">Remove</button>
                       <br></br>
                     </form>
                   </td>
@@ -270,9 +264,7 @@
         <table>
           <thead class="table head">
             <tr class="to-do-row">
-              <th scope="col"></th>
               <th scope="col">Name</th>
-              <th scope="col">Description</th>
               <th scope="col"></th>
             </tr>
           </thead>
@@ -280,12 +272,11 @@
             <% for (const toDo of toDos) { %>
               <% if (toDo.lists_id === 5) { %>
                 <tr>
-                  <td><input type="checkbox"></td>
                   <td><%= toDo.to_do_name %></td>
-                  <td><%= toDo.to_do_description %></td>
+                  <td class="description"><%= toDo.to_do_description %></td>
                   <td>
                     <form method="POST" action="/todo/<%=toDo.id %>/delete">
-                      <button type="submit">Delete</button>
+                      <button type="submit">Remove</button>
                       <br></br>
                     </form>
                   </td>
