@@ -21,8 +21,20 @@ const registerSlider = function () {
   });
 };
 
+
+const toDoSlider = function () {
+  $('.search-bar').hide();
+  $('.make-new-todo').click(function () {
+    $('.search-bar').slideToggle(400, function () {
+      $('.text-area').focus();
+    });
+  });
+};
+
+
 $(document).ready(function () {
   logInSlider();
   registerSlider();
+  toDoSlider();
 
 })
