@@ -3,6 +3,19 @@
 const fetch = require("node-fetch");
 
 const searchBooks = function (searchTerms) {
+  searchTerms = searchTerms.toLowerCase();
+  if (
+    searchTerms.startsWith("read ") &&
+    !searchTerms.startsWith("read about") &&
+    !searchTerms.startsWith("read all about it") &&
+    !searchTerms.startsWith("read me") &&
+    !searchTerms.startsWith("read you like a book")
+  ) {
+    searchTerms = searchTerms.slice(5);
+  }
+  if (searchTerms.startsWith("read about ")) {
+    searchTerms = searchTerms.slice(11);
+  }
   return fetch("https://www.googleapis.com/books/v1/volumes?q=" + searchTerms)
     .then((a) => a.json())
     .then((response) => {
@@ -28,7 +41,10 @@ const searchBooks = function (searchTerms) {
           response.items[0].volumeInfo.publishedDate &&
           response.items[0].volumeInfo.authors === undefined
         ) {
-          result1.description = response.items[0].volumeInfo.publishedDate.slice(0, 4);
+          result1.description = response.items[0].volumeInfo.publishedDate.slice(
+            0,
+            4
+          );
         }
         if (response.items[0].volumeInfo.description) {
           result1.description +=
@@ -54,7 +70,10 @@ const searchBooks = function (searchTerms) {
           response.items[1].volumeInfo.publishedDate &&
           response.items[1].volumeInfo.authors === undefined
         ) {
-          result2.description = response.items[1].volumeInfo.publishedDate.slice(0, 4);
+          result2.description = response.items[1].volumeInfo.publishedDate.slice(
+            0,
+            4
+          );
         }
         if (response.items[1].volumeInfo.description) {
           result2.description +=

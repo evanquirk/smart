@@ -10,6 +10,13 @@ const yelpKey = null;
 const client = yelp.client(yelpKey);
 
 const searchYelp = function (searchTerms) {
+  searchTerms = searchTerms.toLowerCase();
+  if (searchTerms.startsWith("go to ")) {
+    searchTerms = searchTerms.slice(6);
+  }
+  if (searchTerms.startsWith("go to") && !searchTerms.startsWith("go to ")) {
+    searchTerms = searchTerms.slice(5);
+  }
   return fetch("https://api.ipify.org?format=json") // finds the user's IP address
     .then((a) => a.json())
     .then((response) => {
@@ -18,9 +25,10 @@ const searchYelp = function (searchTerms) {
 };
 
 const getCoordsFromIP = function (ip, searchTerms) {
-  return fetch(`https://freegeoip.app/json/${ip}`) /* locates the user.
-    Of course, in a production app I'd need to get the user's permission before any of this,
-    I'd need to be compliant with the privacy laws of different countries, etc. */
+  return fetch(
+    `https://freegeoip.app/json/${ip}`
+  ) /* locates the user.
+  In a production app I would get the user's permission before any of this. */
     .then((a) => a.json())
     .then((response) => {
       const latitude = response.latitude;
@@ -35,7 +43,6 @@ const getCoordsFromIP = function (ip, searchTerms) {
           let results = [];
           let result1 = {};
           let result2 = {};
-          // let result3 = {};
           if (response.jsonBody.businesses[0] !== undefined) {
             result1.name = response.jsonBody.businesses[0].name;
             result1.description =
@@ -52,12 +59,13 @@ const getCoordsFromIP = function (ip, searchTerms) {
             }
             result1.type = "to_eat";
             results.push(result1);
-            if (response.jsonBody.businesses[1].name) {
+            if (response.jsonBody.businesses[1] !== undefined) {
               result2.name = response.jsonBody.businesses[1].name;
               result2.description =
                 response.jsonBody.businesses[1].location.address1 +
                 ", " +
                 response.jsonBody.businesses[1].location.city;
+
               if (response.jsonBody.businesses[1].categories[0].title) {
                 result2.description +=
                   ", " + response.jsonBody.businesses[1].categories[0].title;
@@ -74,5 +82,6 @@ const getCoordsFromIP = function (ip, searchTerms) {
         });
     });
 };
+
 
 module.exports = { searchYelp };
