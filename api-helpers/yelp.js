@@ -5,8 +5,8 @@ const fetch = require("node-fetch");
 
 
 // insert API key here:
-const yelpKey = null;
-
+const yelpKey = process.env.YELP_API;
+console.log('YELP KEY', yelpKey)
 const client = yelp.client(yelpKey);
 
 const searchYelp = function (searchTerms) {
