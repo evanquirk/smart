@@ -107,14 +107,22 @@ const fuse = new Fuse(items, {
 });
 
 const searchItems = function (searchTerms) {
-  const results = fuse.search(searchTerms);
-  let resultsArr = [];
+  searchTerms = searchTerms.toLowerCase();
+  if (searchTerms.startsWith("buy ")) {
+    searchTerms = searchTerms.slice(4);
+  }
+  if (searchTerms.startsWith("buy") && !searchTerms.startsWith("buy ")) {
+    searchTerms = searchTerms.slice(3);
+  }
+  const fuseSearchResults = fuse.search(searchTerms);
+  let results = [];
   for (let i = 0; i < 3; i++) {
-    if (results[i]) {
-      resultsArr.push(results[i].item);
+    if (fuseSearchResults[i]) {
+      results.push(fuseSearchResults[i].item);
     }
   }
-  return resultsArr;
+  return results;
 };
+
 
 module.exports = { searchItems };
