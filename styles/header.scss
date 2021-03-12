@@ -17,93 +17,40 @@
   font-size: 2em;
   color: white;
 }
-.logo a:link {
-  color:#FFFFFF;
+
+.make-new-todo {
+  display: flex;
+  background: transparent;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  font-size: 130%;
+  padding-top: 3em;
 }
 
-#right-nav {
+.nav-arrow {
+  color: #e6a94ee5;
+  font-weight: bold;
+  font-size: 120%
+}
+
+.nav-arrow:hover {
+  color: #f5970be5;
+  font-weight: bolder
+}
+
+.form-inline {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-top: -.5em;
-}
+  margin-top: .5em;
 
-#right-nav-buttons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logIn {
-  margin-top: -.25em;
+  .logout {
+    margin-top: .5em;
+    background-color: rgba(128, 128, 128, 0.623);
+    color: white
+  }
 
 }
 
-.register {
-  margin-top: -.25em;
-}
-
-.register-button {
-  background-color: rgba(128, 128, 128, 0.623);
-  margin-top: -.75em;
-}
-
-.login-button {
-  background-color: rgba(128, 128, 128, 0.623);
-  margin-top: -.75em;
-}
-
-input[name="email"] {
-  width: 30%;
-  margin: 1em;
-}
-
-input[name="password"] {
-  width: 30%;
-  margin-left: 1em;
-  margin-right: 1em;
-}
-
-label[for=email] {
-  margin-left: .5em;
-}
-
-.submit-login {
-  margin-left: .5em;
-  margin-top: -.5em;
-  margin-bottom: 1em;
-  background-color: #5059a7e5
-}
-
-label[for=username] {
-  margin-left: .5em;
-}
-
-label[for=password] {
-  margin-left: .5em;
-}
-
-.submit-register {
-  margin-left: .5em;
-  margin-top: -.5em;
-  margin-bottom: 1em;
-  background-color: #5059a7e5
-}
-
-input[name="newUsername"] {
-  width: 20%;
-  margin: 1em;
-}
-
-input[name="newEmail"] {
-  width: 20%;
-  margin: 1em;
-}
-
-input[name="newPassword"] {
-  width: 20%;
-  margin-left: 1em;
-  margin-right: 1em;
-}

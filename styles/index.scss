@@ -1,0 +1,81 @@
+body {
+  background-color: #f4f1ec;
+  background-image: url("https://www.transparenttextures.com/patterns/cardboard.png");
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: #545149;
+  font-size: 24px;
+  font-family: "Source Sans Pro", sans-serif;
+
+  #splash-navigation {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 120px;
+    color: white;
+    background-color: #11261c;
+  }
+
+  #splash-name {
+    padding: 0.666em;
+  }
+
+  main {
+    margin: 120px;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    color: #545149;
+    background: transparent;
+  }
+
+  #greeting {
+    margin-top: 50px;
+    align-items: center;
+  }
+
+  #greeting-buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+  .register-button {
+    height: 45px;
+    font-size: 90%;
+    color: white;
+    background-color: #451c61ab;
+  }
+
+  .login-button {
+    height: 45px;
+    font-size: 90%;
+    color: white;
+    background-color: #451c61ab;
+  }
+
+  .logIn {
+    margin-top: .75em;
+  }
+
+  .register {
+    margin-top: .75em;
+  }
+
+  .submit-login {
+    font-size: 90%;
+    color: white;
+    background-color: #5059a7e5;
+  }
+
+  .submit-register {
+    font-size: 90%;
+    color: white;
+    background-color: #5059a7e5;
+  }
+
+}

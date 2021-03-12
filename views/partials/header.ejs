@@ -2,13 +2,14 @@
  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
 <header>
   <nav id="navigation">
-    <div class="logo"> SORT.ID</div>
+    <div class="logo"> SORT.id</div>
      <div id="make-new-todo">
-        <button type="submit" class="make-new-todo">Make New To Do</button>
+        <span class="make-new-todo">Make A New To Do</button>
+        <i class="fa fa-angle-double-down nav-arrow" aria-hidden="true"></i>
       </div>
           <div id="right-nav">
             <form method="POST" action="/logout" class ="form-inline">
-              <label>Hello, <%= user.username %></label>
+              <label>Hello, <%= user.username %>&nbsp;</label>
                 <button type="submit" class="logout">Log Out</button>&nbsp;
              </form>
           </div>
