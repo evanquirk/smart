@@ -35,7 +35,7 @@ const getCoordsFromIP = function (ip, searchTerms) {
           let results = [];
           let result1 = {};
           let result2 = {};
-          let result3 = {};
+          // let result3 = {};
           if (response.jsonBody.businesses[0] !== undefined) {
             result1.name = response.jsonBody.businesses[0].name;
             result1.description =
@@ -68,23 +68,6 @@ const getCoordsFromIP = function (ip, searchTerms) {
               }
               result2.type = "to_eat";
               results.push(result2);
-            }
-            if (response.jsonBody.businesses[2].name) {
-              result3.name = response.jsonBody.businesses[2].name;
-              result3.description =
-                response.jsonBody.businesses[2].location.address1 +
-                ", " +
-                response.jsonBody.businesses[2].location.city;
-              if (response.jsonBody.businesses[2].categories[0].title) {
-                result3.description +=
-                  ", " + response.jsonBody.businesses[2].categories[0].title;
-              }
-              if (response.jsonBody.businesses[2].price) {
-                result3.description +=
-                  ", " + response.jsonBody.businesses[2].price;
-              }
-              result1.type = "to_eat";
-              results.push(result3);
             }
           }
           return results;
