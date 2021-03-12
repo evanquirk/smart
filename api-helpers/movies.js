@@ -3,7 +3,7 @@
 const fetch = require("node-fetch");
 
 // insert API key here:
-const omdbKey = null;
+const omdbKey = process.env.OMDB_API;
 
 const searchMovies = function (searchTerms) {
   searchTerms = searchTerms.toLowerCase();
