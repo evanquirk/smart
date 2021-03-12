@@ -6,13 +6,14 @@
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/index.css" type="text/css" />
+
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 
   <!-- App CSS -->
-  <!-- <link rel="stylesheet" href="/styles/index.css" type="text/css" /> -->
+  <link rel="stylesheet" href="/styles/index.scss" type="text/css" />
 
   <!-- External CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -26,33 +27,33 @@
   <main>
 
     <!-- Navigation Bar -->
+    <div id="splash-navigation">
+      <h1 id="splash-name">SORT.id</h1>
+      <h6 id="splash-subtext">a smart to-do list</h6>
+    </div>
 
-    <p>Hello! Please sign in.</p>
-    <div id="right-nav-buttons">
-      <button type="button" class="register-button">Register</button>&nbsp;
-      <button type="button" class="login-button">Login</button>
-    </div>
-    </div>
+    <div id="greeting">
+      <p>Hello! Please sign in to continue.</p>
+        <div id="greeting-buttons">
+          <button type="button" class="register-button">Register</button>&nbsp;&nbsp;
+          <button type="button" class="login-button">Login</button>
+        </div>
+     </div>
 
     <!-- Log in Form -->
-  <form action="/login" class="logIn" method="POST">
-    <label for="email">Email:</label>
-    <input type="email" name="email">
-      <label for="password">Password:</label>
-    <input type="password" name="password"></input>
-    <button type="submit" class="submit-login">Login</button>
+    <form action="/login" class="logIn" method="POST">
+      <input type="email" name="email" placeholder="email">
+      <input type="password" name="password" placeholder="password"></input>
+      <button type="submit" class="submit-login">Submit</button>
     </form>
 
     <!-- Register Form -->
     <form action="/register" class="register" method="POST">
-      <label for="username">Username:</label>
-      <input type="username" name="newUsername">
-      <label for="email">Email:</label>
-      <input type="email" name="newEmail">
-        <label for="password">Password:</label>
-      <input type="password" name="newPassword"></input>
-      <button type="submit" class="submit-register">Register</button>
-      </form>
+      <input type="username" name="newUsername" placeholder="Username">
+      <input type="email" name="newEmail" placeholder="Email">
+      <input type="password" name="newPassword" placeholder="Password"></input>
+      <button type="submit" class="submit-register">Submit</button>
+    </form>
 
     <!-- INSERT GIF OF FUNCTIONALITY HERE -->
 

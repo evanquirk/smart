@@ -40,14 +40,14 @@
     <!-- Search Results -->
     <% if (results) { %>
       <article class="preview-box">
-        <table>
+        <table id="table-watch" class="results-tables">
           <thead>
             <tr><th>To Watch</th></tr>
           </thead>
           <tbody>
             <% for (const result of results) { %>
               <% if (result.type === 'to_watch') { %>
-                <td>
+                <td class="watch-results">
                   <form method="POST" action="/user-lists">
                     <input type="hidden" name="description" value="<%= result.description %>">
                     <input type="hidden" name="name" value="<%= result.name %>">
@@ -59,14 +59,14 @@
             <% } %>
           </tbody>
         </table>
-        <table>
+        <table id="table-read" class="results-tables">
           <thead>
             <tr><th>To Read</th></tr>
           </thead>
           <tbody>
             <% for (const result of results) { %>
               <% if (result.type === 'to_read') { %>
-                <td>
+                <td class="read-results">
                   <form method="POST" action="/user-lists">
                     <input type="hidden" name="description" value="<%= result.description %>">
                     <input type="hidden" name="name" value="<%= result.name %>">
@@ -78,14 +78,14 @@
             <% } %>
           </tbody>
         </table>
-        <table>
+        <table id="table-eat" class="results-tables">
           <thead>
             <tr><th>To Visit Nearby</th></tr>
           </thead>
           <tbody>
             <% for (const result of results) { %>
               <% if (result.type === 'to_eat') { %>
-                <td>
+                <td class="eat-results">
                   <form method="POST" action="/user-lists">
                     <input type="hidden" name="description" value="<%= result.description %>">
                     <input type="hidden" name="name" value="<%= result.name %>">
@@ -97,14 +97,14 @@
             <% } %>
           </tbody>
         </table>
-        <table>
+        <table id="table-buy" class="results-tables">
           <thead>
             <tr><th>To Buy</th></tr>
           </thead>
           <tbody>
             <% for (const result of results) { %>
               <% if (result.type === 'to_buy') { %>
-                <td>
+                <td class="buy-results">
                   <form method="POST" action="/user-lists">
                     <input type="hidden" name="description" value="<%= result.description %>">
                     <input type="hidden" name="name" value="<%= result.name %>">
@@ -116,14 +116,14 @@
             <% } %>
           </tbody>
         </table>
-        <table>
+        <table id="table-uncategorized" class="results-tables">
           <thead>
             <tr><th>Uncategorized</th></tr>
           </thead>
           <tbody>
             <% for (const result of results) { %>
               <% if (!result.type) { %>
-                <td>
+                <td class="uncategorized-results">
                   <form method="POST" action="/user-lists">
                     <input type="hidden" name="description" value="<%= result.description %>">
                     <input type="hidden" name="name" value="<%= result.name %>">
@@ -142,7 +142,7 @@
     <div class="lists">
 
       <div class="list to-watch">
-        <h3>To Watch</h3>
+        <h3 class="list-name">To Watch</h3>
         <table>
           <thead class="table head">
             <tr>
@@ -155,13 +155,14 @@
           <tbody class="table body">
             <% for (const toDo of toDos) { %>
               <% if (toDo.lists_id === 1) { %>
-                <tr>
+                <tr class="to-do-row">
                   <td><input type="checkbox"></td>
                   <td><%= toDo.to_do_name %></td>
                   <td><%= toDo.to_do_description %></td>
                   <td>
                     <form method="POST" action="/todo/<%=toDo.id %>/delete">
                       <button type="submit">Delete</button>
+                      <br></br>
                     </form>
                   </td>
                 </tr>
@@ -172,10 +173,10 @@
       </div>
 
       <div class="list to-read">
-        <h3>To Read</h3>
+        <h3 class="list-name">To Read</h3>
         <table>
           <thead class="table head">
-            <tr>
+            <tr class="to-do-row">
               <th scope="col"></th>
               <th scope="col">Name</th>
               <th scope="col">Description</th>
@@ -192,6 +193,7 @@
                   <td>
                     <form method="POST" action="/todo/<%=toDo.id %>/delete">
                       <button type="submit">Delete</button>
+                      <br></br>
                     </form>
                   </td>
                 </tr>
@@ -202,10 +204,10 @@
       </div>
 
       <div class="list to-eat">
-        <h3>To Visit Nearby</h3>
+        <h3 class="list-name">To Visit Nearby</h3>
         <table>
           <thead class="table head">
-            <tr>
+            <tr class="to-do-row">
               <th scope="col"></th>
               <th scope="col">Name</th>
               <th scope="col">Description</th>
@@ -215,13 +217,14 @@
           <tbody class="table body">
             <% for (const toDo of toDos) { %>
               <% if (toDo.lists_id === 3) { %>
-                <tr>
+                <tr class="to-do-row">
                   <td><input type="checkbox"></td>
                   <td><%= toDo.to_do_name %></td>
                   <td><%= toDo.to_do_description %></td>
                   <td>
                     <form method="POST" action="/todo/<%=toDo.id %>/delete">
                       <button type="submit">Delete</button>
+                      <br></br>
                     </form>
                   </td>
                 </tr>
@@ -232,10 +235,10 @@
       </div>
 
       <div class="list to-buy">
-        <h3>To Buy</h3>
+        <h3 class="list-name">To Buy</h3>
         <table>
           <thead class="table head">
-            <tr>
+            <tr class="to-do-row">
               <th scope="col"></th>
               <th scope="col">Name</th>
               <th scope="col">Description</th>
@@ -252,6 +255,7 @@
                   <td>
                     <form method="POST" action="/todo/<%=toDo.id %>/delete">
                       <button type="submit">Delete</button>
+                      <br></br>
                     </form>
                   </td>
                 </tr>
@@ -262,10 +266,10 @@
       </div>
 
       <div class="list uncategorized">
-        <h3>Uncategorized</h3>
+        <h3 class="list-name">Uncategorized</h3>
         <table>
           <thead class="table head">
-            <tr>
+            <tr class="to-do-row">
               <th scope="col"></th>
               <th scope="col">Name</th>
               <th scope="col">Description</th>
@@ -282,6 +286,7 @@
                   <td>
                     <form method="POST" action="/todo/<%=toDo.id %>/delete">
                       <button type="submit">Delete</button>
+                      <br></br>
                     </form>
                   </td>
                 </tr>
