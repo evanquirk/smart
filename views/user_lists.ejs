@@ -157,12 +157,11 @@
             <% for (const toDo of toDos) { %>
               <% if (toDo.lists_id === 1) { %>
                 <tr class="to-do-row">
-
                   <td><%= toDo.to_do_name %></td>
                   <td class="description"><%= toDo.to_do_description %></td>
                   <td>
                     <form method="POST" action="/todo/<%=toDo.id %>/delete">
-
+                      <button type="submit">Remove</button>
                       <br></br>
                     </form>
                   </td>
@@ -178,7 +177,6 @@
         <table>
           <thead class="table head">
             <tr class="to-do-row">
-
               <th scope="col">Name</th>
               <th scope="col">Description</th>
               <th scope="col"></th>
@@ -192,7 +190,7 @@
                   <td class="description"><%= toDo.to_do_description %></td>
                   <td>
                     <form method="POST" action="/todo/<%=toDo.id %>/delete">
-
+                      <button type="submit">Remove</button>
                       <br></br>
                     </form>
                   </td>
@@ -208,7 +206,6 @@
         <table>
           <thead class="table head">
             <tr class="to-do-row">
-
               <th scope="col">Name</th>
               <th scope="col">Description</th>
               <th scope="col"></th>
@@ -218,12 +215,12 @@
             <% for (const toDo of toDos) { %>
               <% if (toDo.lists_id === 3) { %>
                 <tr class="to-do-row">
-
                   <td><%= toDo.to_do_name %></td>
                   <td class="description"><%= toDo.to_do_description %></td>
                   <td>
                     <form method="POST" action="/todo/<%=toDo.id %>/delete">
-    <br></br>
+                      <button type="submit">Remove</button>
+                      <br></br>
                     </form>
                   </td>
                 </tr>
@@ -238,7 +235,6 @@
         <table>
           <thead class="table head">
             <tr class="to-do-row">
-
               <th scope="col">Name</th>
               <th scope="col">Description</th>
               <th scope="col"></th>
@@ -252,7 +248,7 @@
                   <td class="description"><%= toDo.to_do_description %></td>
                   <td>
                     <form method="POST" action="/todo/<%=toDo.id %>/delete">
-
+                      <button type="submit">Remove</button>
                       <br></br>
                     </form>
                   </td>
@@ -268,7 +264,6 @@
         <table>
           <thead class="table head">
             <tr class="to-do-row">
-
               <th scope="col">Name</th>
               <th scope="col"></th>
             </tr>
@@ -281,7 +276,7 @@
                   <td class="description"><%= toDo.to_do_description %></td>
                   <td>
                     <form method="POST" action="/todo/<%=toDo.id %>/delete">
-
+                      <button type="submit">Remove</button>
                       <br></br>
                     </form>
                   </td>

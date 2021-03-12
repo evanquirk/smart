@@ -1,87 +1,149 @@
+// Add To-Do
+main {
+  font-family: 'Oswald', sans-serif;
+  background-color: #f4f1ec;
 
-      font-size: 90%;
-      color: white;
-      background-color: #5059a7e5;
+}
+body {
+  background-color: #f4f1ec;
+}
+
+
+  .search-bar {
+  padding-top: 150px;
+    #todo-search {
+      align-self: center;
+      align-items: center;
+      width: 90%;
+      padding: 1.5em;
     }
+
+    .text-area {
+      width: 100%;
+      background: transparent;
+      border: transparent;
+    outline: none;
+      border-bottom: 3.5px solid #545149;
+      font-weight: 400;
+    }
+
+    button {
+      height: 45px;
+    font-size: 90%;
+    color: white;
+    background-color: #5059a7e5;
+  }
 }
 
 
 .preview-box {
-  display: flex;
-  margin: 150px 80px 0px 80px;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
+display: flex;
+margin: 150px 80px 0px 80px;
+justify-content: space-between;
+align-items: center;
+flex-direction: row;
 
-      .results-tables {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
+    .results-tables {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-      #table-watch {
-        padding: .25em;
-        border: 3px dotted #855c77;
-        font-family: "Source Sans Pro", sans-serif;
-        font-weight: 300;
-      }
+    #table-watch {
+      padding: .25em;
+      border: 3px dotted #855c77;
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: 300;
+    }
 
-      #table-read {
-        padding: .25em;
-        border: 3px dotted #b49069;
-        font-family: "Source Sans Pro", sans-serif;
-        font-weight: 300;
-      }
+    #table-read {
+      padding: .25em;
+      border: 3px dotted #b49069;
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: 300;
+    }
 
-      #table-eat {
-        padding: .25em;
-        border: 3px dotted #a9a9c3;
-        font-family: "Source Sans Pro", sans-serif;
-        font-weight: 300;
-      }
+    #table-eat {
+      padding: .25em;
+      border: 3px dotted #a9a9c3;
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: 300;
+    }
 
-      #table-buy {
-        padding: .25em;
-        border: 3px dotted #88c7be;
-        font-family: "Source Sans Pro", sans-serif;
-        font-weight: 300;
-      }
+    #table-buy {
+      padding: .25em;
+      border: 3px dotted #88c7be;
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: 300;
+    }
 
-      #table-uncategorized {
-        padding: .25em;
-        border: 3px dotted #1e2730;
-        font-family: "Source Sans Pro", sans-serif;
-        font-weight: 300;
-      }
+    #table-uncategorized {
+      padding: .25em;
+      border: 3px dotted #1e2730;
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: 300;
+    }
 }
 
 .lists {
-  margin-top: 135px;
-  width: 100vw;
-  .list {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
+margin-top: 135px;
+width: 100vw;
+.list {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0% 10% 2% 10%;
+  align-items: center;
+  align-content: stretch;
+  justify-content: space-between;
 
-    margin: 0% 10% 2% 10%;
-    align-items: center;
-    align-content: stretch;
-    justify-content: space-between;
+  table {
+    .body {
+      tr {
+      td {
 
-  .to-watch {
-    border: 4px solid #855c77;
+      }
+        .description {
+          color: rgb(128, 128, 128);
+          font-style: italic;
+          // font-family: 'Oswald', sans-serif;
+        }
+      }
+    }
+    button {
+      background-color: inherit;
+      border: 1px solid black;
+      border-radius: 5px;
+      color: rgb(187, 0, 0);
+      margin-top: 20px;
+      margin-left: 10px;
+      padding: 5px 5px;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
   }
+}
+.list-name {
+  display: flex;
+  justify-content: center;
+}
 
-  .to-read {
-    border: 4px solid #b49069;
-  }
-  .to-eat {
-    border: 4px solid #a9a9c3;
-  }
-  .to-buy {
-    border: 4px solid #88c7be;
-  }
-  .uncategorized {
-    border: 4px solid #1e2730;
-  }
- }
+
+.to-watch {
+  border: 4px solid #855c77;
+}
+
+.to-read {
+  border: 4px solid #b49069;
+}
+.to-eat {
+  border: 4px solid #a9a9c3;
+}
+.to-buy {
+  border: 4px solid #88c7be;
+}
+.uncategorized {
+  border: 4px solid #1e2730;
+}
+}
