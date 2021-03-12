@@ -26,7 +26,8 @@ module.exports = () => {
     Promise.all([yelpPromise, bookPromise, moviePromise])
     .then((values) => {
       const grocery = searchItems(todoSearch)
-      return [...values[0],...values[1],...values[2],...grocery]
+      const uncategorized = { name: todoSearch }
+      return [...values[0],...values[1],...values[2],...grocery, uncategorized]
     }).then(results => {
       return insertSearchResults(results)
     }).finally(() => res.redirect('/user-lists'))
